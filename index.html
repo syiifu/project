@@ -634,7 +634,7 @@
               </li>
             </ul>
 
-            <!-- FEATURE 1: Collapsible Certification Image Gallery (Like Top 10 Thumbnails) -->
+            <!-- FEATURE 1: Collapsible Certification Image Gallery -->
             <div class="mt-6 pt-5 border-t border-rose-200/60">
               <div class="flex items-center justify-between gap-2">
                 <p class="text-[11px] font-semibold text-slate-500">Official Credentials & Certificates</p>
@@ -721,7 +721,7 @@
               </div>
             </div>
 
-            <!-- FEATURE 2: Separate Work Documentation Section (Like Top 10 Viral Thumbnails) -->
+            <!-- FEATURE 2: Separate Work Documentation Section -->
             <div class="mt-8 pt-6 border-t border-slate-100">
               <div class="flex flex-wrap items-center justify-between gap-2">
                 <div>
@@ -729,7 +729,7 @@
                   <p class="text-xs font-semibold text-slate-700">Work & Activity Documentation Archive</p>
                 </div>
                 <button onclick="toggleWorkDocsGallery()" id="toggleWorkDocsBtn" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-rose-600 transition-colors">
-                  <span>Show Work Documentation (6)</span>
+                  <span>Show Work Documentation (7)</span>
                   <span class="iconify" data-icon="lucide:chevron-down"></span>
                 </button>
               </div>
@@ -842,7 +842,7 @@
   </footer>
 
   <!-- =====================================================================
-       1-SECOND IMAGE PLACEHOLDER CONFIGURATION & INTERACTIVE LOGIC
+       1-SECOND IMAGE PLACEHOLDER CONFIGURATION & INTERACTIVE LOGIC (FIXED)
   ====================================================================== -->
   <script>
     /**
@@ -882,7 +882,7 @@
         reel10: "menikah10.jpg"
       },
 
-      // 3. GALERI SERTIFIKASI (Di bawah Training & Certifications) -> Ganti dengan nama file gambar sertifikatmu
+      // 3. GALERI SERTIFIKASI (Di bawah Training & Certifications)
       certifications: {
         cert1_BNSP:               "sertif-bnsp.jpg",
         cert2_ClassicalTesting:   "sertif-testing.jpg",
@@ -892,16 +892,15 @@
         cert6_Psychoeducation:    "sertif-psychoeducation.jpg"
       },
 
-      // 4. GALERI DOKUMENTASI KERJA (Di bawah Professional Experience) -> Ganti dengan nama file foto dokumentasimu
+      // 4. GALERI DOKUMENTASI KERJA (Di bawah Professional Experience)
       workDocumentation: {
         doc1: "1bri.jpg",
         doc2: "6ji.JPG",
         doc3: "7ji.JPG",
         doc4: "4nf.jpg",
         doc5: "5nf.jpg",
-        doc6: "3nwip.jpg"
-        doc7: "7ji.jpg"
-        doc8: "2moms.jpg"
+        doc6: "3nwip.jpg",
+        doc7: "2moms.jpg"
       }
     };
 
@@ -1114,7 +1113,7 @@
     }
 
     // =========================================================================
-    // TOP 10 KONTEN DATA (Sumber Utama Tabel & Thumbnail Reels)
+    // TOP 10 KONTEN DATA
     // =========================================================================
     const top10Data = [
       { rank: 1, title: "anak perempuan sering meledak-ledak", type: "Reels", date: "14 Jun 2025", views: 751870, engagement: 93420, er: 12.4, img: IMAGE_CONFIG.reelsThumbnails.reel1, color: "from-rose-500/80" },
@@ -1245,7 +1244,8 @@
 
       dataList.forEach((reel) => {
         const card = document.createElement('div');
-        card.className = 'tilt-card group relative aspect-[4/5] rounded-3xl overflow-hidden bg-slate-900 border border-rose-100 shadow-sm flex flex-col justify-between p-4';
+        card.onclick = () => openLightbox(reel.img, reel.title, `Rank #${reel.rank} • ER ${reel.er}%`);
+        card.className = 'tilt-card cursor-pointer group relative aspect-[4/5] rounded-3xl overflow-hidden bg-slate-900 border border-rose-100 shadow-sm flex flex-col justify-between p-4';
         card.innerHTML = `
           <img src="${reel.img}" onerror="this.style.display='none'" alt="${reel.title}" class="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-105 transition-transform duration-500">
           <div class="absolute inset-0 bg-gradient-to-br ${reel.color} via-slate-900/75 to-slate-950 z-0"></div>
@@ -1305,7 +1305,7 @@
       if (!container) return;
       container.innerHTML = '';
 
-      certificationItems.forEach((cert, idx) => {
+      certificationItems.forEach((cert) => {
         const card = document.createElement('div');
         card.onclick = () => openLightbox(cert.img, cert.title, cert.tag);
         card.className = 'tilt-card cursor-pointer group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 border border-rose-200/70 shadow-sm flex flex-col justify-between p-4';
@@ -1345,16 +1345,16 @@
     }
 
     // =========================================================================
-    // FEATURE 2: WORK DOCUMENTATION GALLERY DATA & RENDERER
+    // FEATURE 2: WORK DOCUMENTATION GALLERY DATA & RENDERER (FIXED!)
     // =========================================================================
     const workDocumentationItems = [
-      { title: "Human Capital Administration & Recruitment", role: "Bank BRI • Internship", period: "Aug – Sep 2025", img: 1bri.jpg.workDocumentation.doc1, accent: "blue" },
-      { title: "Competency Assessment & FGD Facilitation", role: "HRBP Observer & Facilitator", period: "Feb – Sep 2025", img: 6ji.workDocumentation.doc2, accent: "rose" },
-      { title: "Behavioral Simulation & Coaching Session", role: "HRBP Project-Based", period: "2025", img: 7ji.workDocumentation.doc3, accent: "blue" },
-      { title: "Classical Psychological Testing (200+ Students)", role: "Psychological Assessor", period: "July 2026", img: 4nf.workDocumentation.doc4, accent: "rose" },
-      { title: "Standardized Exam Proctoring & Evaluation", role: "Assessment Test Psychology", period: "July 2026", img: 5nf.workDocumentation.doc5, accent: "blue" },
-      { title: "Employer Branding & Content Production", role: "Marketing Communication", period: "Jan – Dec 2025", img: 3nwip.workDocumentation.doc6, accent: "rose" }
-      { title: "Employer Branding & Content Production", role: "Marketing Communication", period: "Jan – Dec 2025", img: 2moms.workDocumentation.doc6, accent: "blue" }
+      { title: "Human Capital Administration & Recruitment", role: "Bank BRI • Internship", period: "Aug – Sep 2025", img: IMAGE_CONFIG.workDocumentation.doc1, accent: "blue" },
+      { title: "Competency Assessment & FGD Facilitation", role: "HRBP Observer & Facilitator", period: "Feb – Sep 2025", img: IMAGE_CONFIG.workDocumentation.doc2, accent: "rose" },
+      { title: "Behavioral Simulation & Coaching Session", role: "HRBP Project-Based", period: "2025", img: IMAGE_CONFIG.workDocumentation.doc3, accent: "blue" },
+      { title: "Classical Psychological Testing (200+ Students)", role: "Psychological Assessor", period: "July 2026", img: IMAGE_CONFIG.workDocumentation.doc4, accent: "rose" },
+      { title: "Standardized Exam Proctoring & Evaluation", role: "Assessment Test Psychology", period: "July 2026", img: IMAGE_CONFIG.workDocumentation.doc5, accent: "blue" },
+      { title: "Employer Branding & Content Production", role: "Marketing Communication", period: "Jan – Dec 2025", img: IMAGE_CONFIG.workDocumentation.doc6, accent: "rose" },
+      { title: "Creative Campaign & Stakeholder Liaison", role: "Marketing Communication", period: "Jan – Dec 2025", img: IMAGE_CONFIG.workDocumentation.doc7, accent: "blue" }
     ];
 
     function renderWorkDocsGallery() {
@@ -1397,7 +1397,7 @@
       } else {
         grid.classList.add('hidden');
         grid.classList.remove('grid');
-        btn.innerHTML = `<span>Show Work Documentation (6)</span><span class="iconify" data-icon="lucide:chevron-down"></span>`;
+        btn.innerHTML = `<span>Show Work Documentation (${workDocumentationItems.length})</span><span class="iconify" data-icon="lucide:chevron-down"></span>`;
       }
     }
 
