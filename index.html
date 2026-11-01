@@ -579,12 +579,12 @@
     </section>
 
     <!-- =====================================================================
-         CHAPTER 3: OFFICIAL CV — ABOUT, EXPERIENCE & SKILLS
+         CHAPTER 3: OFFICIAL CV — ABOUT, EXPERIENCE, CERTIFICATIONS & WORK DOCS
     ====================================================================== -->
     <section id="about" class="chapter-3d max-w-[1280px] mx-auto px-6 py-20 border-t border-rose-100">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
         
-        <!-- Left Column: Profile Summary, Education & Certifications -->
+        <!-- Left Column: Profile Summary, Education & Certifications (+ Cert Gallery) -->
         <div class="lg:col-span-5 space-y-6">
           <div class="tilt-card bg-white p-7 rounded-3xl border border-rose-100 shadow-sm">
             <span class="text-xs font-bold uppercase tracking-widest text-rose-500">Executive Profile</span>
@@ -608,7 +608,7 @@
             </div>
           </div>
 
-          <!-- Training & Certifications Card -->
+          <!-- Training & Certifications Card + Collapsible Gallery -->
           <div class="tilt-card bg-gradient-to-br from-rose-50/70 to-white p-7 rounded-3xl border border-rose-100 shadow-sm">
             <span class="text-xs font-bold uppercase tracking-widest text-rose-500">Training & Certifications</span>
             <ul class="mt-4 space-y-3 text-xs sm:text-sm font-medium text-slate-800">
@@ -633,10 +633,23 @@
                 <span>Career Coaching & Psychoeducation</span>
               </li>
             </ul>
+
+            <!-- FEATURE 1: Collapsible Certification Image Gallery (Like Top 10 Thumbnails) -->
+            <div class="mt-6 pt-5 border-t border-rose-200/60">
+              <div class="flex items-center justify-between gap-2">
+                <p class="text-[11px] font-semibold text-slate-500">Official Credentials & Certificates</p>
+                <button onclick="toggleCertGallery()" id="toggleCertBtn" class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-600 hover:text-blue-600 transition-colors">
+                  <span>Show Certification Gallery (6)</span>
+                  <span class="iconify" data-icon="lucide:chevron-down"></span>
+                </button>
+              </div>
+              <div id="certGalleryContainer" class="hidden grid-cols-1 sm:grid-cols-2 gap-3.5 mt-4">
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- Right Column: 4 Core Professional Experiences & Skills -->
+        <!-- Right Column: 4 Core Professional Experiences, Work Documentation & Skills -->
         <div id="experience" class="lg:col-span-7 space-y-6">
           <div class="bg-white p-7 md:p-9 rounded-3xl border border-slate-200/80 shadow-sm">
             <div class="flex items-center justify-between mb-6">
@@ -707,6 +720,22 @@
                 </ul>
               </div>
             </div>
+
+            <!-- FEATURE 2: Separate Work Documentation Section (Like Top 10 Viral Thumbnails) -->
+            <div class="mt-8 pt-6 border-t border-slate-100">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600">Field Action & Moments</span>
+                  <p class="text-xs font-semibold text-slate-700">Work & Activity Documentation Archive</p>
+                </div>
+                <button onclick="toggleWorkDocsGallery()" id="toggleWorkDocsBtn" class="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-rose-600 transition-colors">
+                  <span>Show Work Documentation (6)</span>
+                  <span class="iconify" data-icon="lucide:chevron-down"></span>
+                </button>
+              </div>
+              <div id="workDocsGalleryContainer" class="hidden grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-5">
+              </div>
+            </div>
           </div>
 
           <!-- Skills & Languages Bento -->
@@ -747,6 +776,26 @@
     </section>
 
   </main>
+
+  <!-- =====================================================================
+       LIGHTBOX MODAL FOR PREVIEWING CERTIFICATES & WORK DOCUMENTATION
+  ====================================================================== -->
+  <div id="imageLightbox" onclick="closeLightbox()" class="fixed inset-0 z-50 hidden bg-slate-950/85 backdrop-blur-md items-center justify-center p-4 sm:p-6">
+    <div onclick="event.stopPropagation()" class="relative max-w-3xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl border border-rose-100">
+      <div class="flex items-center justify-between px-6 py-4 border-b border-slate-100">
+        <div>
+          <span id="lightboxBadge" class="text-[10px] font-bold uppercase tracking-widest text-rose-500">Preview</span>
+          <h4 id="lightboxTitle" class="font-display text-base font-bold text-slate-900">Document Preview</h4>
+        </div>
+        <button onclick="closeLightbox()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-rose-500 hover:text-white transition-colors flex items-center justify-center text-slate-600">
+          <span class="iconify text-base" data-icon="lucide:x"></span>
+        </button>
+      </div>
+      <div class="bg-slate-900 max-h-[75vh] flex items-center justify-center overflow-hidden">
+        <img id="lightboxImg" src="" alt="Preview" class="max-h-[75vh] w-auto object-contain">
+      </div>
+    </div>
+  </div>
 
   <!-- =====================================================================
        FOOTER & CONTACT INFORMATION
@@ -831,11 +880,31 @@
         reel8:  "ibutua-8.jpg",
         reel9:  "pesantren9.jpg",
         reel10: "menikah10.jpg"
+      },
+
+      // 3. GALERI SERTIFIKASI (Di bawah Training & Certifications) -> Ganti dengan nama file gambar sertifikatmu
+      certifications: {
+        cert1_BNSP:               "sertif-bnsp.jpg",
+        cert2_ClassicalTesting:   "sertif-testing.jpg",
+        cert3_CandidateSelection: "sertif-selection.jpg",
+        cert4_InterviewSkills:    "sertif-interview.jpg",
+        cert5_CareerCoaching:     "sertif-coaching.jpg",
+        cert6_Psychoeducation:    "sertif-psychoeducation.jpg"
+      },
+
+      // 4. GALERI DOKUMENTASI KERJA (Di bawah Professional Experience) -> Ganti dengan nama file foto dokumentasimu
+      workDocumentation: {
+        doc1: "1bri.jpg",
+        doc2: "6ji.JPG",
+        doc3: "7ji.JPG",
+        doc4: "4nf.jpg",
+        doc5: "5nf.jpg",
+        doc6: "3nwip.jpg"
       }
     };
 
     // =========================================================================
-    // DATA 4 KARTU UTAMA (id: 4 Psychology & BNSP telah dihapus)
+    // DATA 4 KARTU UTAMA
     // =========================================================================
     const showcaseItems = [
       {
@@ -1165,7 +1234,7 @@
     }
 
     // =========================================================================
-    // TOP 10 VIRAL REELS THUMBNAIL ARCHIVE (Terhubung langsung ke top10Data)
+    // TOP 10 VIRAL REELS THUMBNAIL ARCHIVE
     // =========================================================================
     function renderViralReelsGrid(dataList = top10Data) {
       const container = document.getElementById('reelsGridContainer');
@@ -1217,6 +1286,140 @@
       }
     }
 
+    // =========================================================================
+    // FEATURE 1: CERTIFICATION GALLERY DATA & RENDERER
+    // =========================================================================
+    const certificationItems = [
+      { title: "BNSP Recruitment Supervisor & HR", issuer: "Badan Nasional Sertifikasi Profesi", tag: "BNSP Licensed", img: IMAGE_CONFIG.certifications.cert1_BNSP, color: "from-rose-500/85" },
+      { title: "Classical Administration Testing", issuer: "Psychological Assessment Training", tag: "Psychometrics", img: IMAGE_CONFIG.certifications.cert2_ClassicalTesting, color: "from-blue-600/85" },
+      { title: "Candidate Selection Proficiency", issuer: "Talent Acquisition Credential", tag: "Selection", img: IMAGE_CONFIG.certifications.cert3_CandidateSelection, color: "from-rose-600/85" },
+      { title: "Interview & Interviewing Skills", issuer: "Competency-Based Interviewing", tag: "HR Competency", img: IMAGE_CONFIG.certifications.cert4_InterviewSkills, color: "from-indigo-600/85" },
+      { title: "Career Coaching Certification", issuer: "Organizational & Career Development", tag: "Coaching", img: IMAGE_CONFIG.certifications.cert5_CareerCoaching, color: "from-pink-600/85" },
+      { title: "Psychoeducation Facilitator", issuer: "Applied Psychology Program", tag: "Psychoeducation", img: IMAGE_CONFIG.certifications.cert6_Psychoeducation, color: "from-sky-600/85" }
+    ];
+
+    function renderCertGallery() {
+      const container = document.getElementById('certGalleryContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      certificationItems.forEach((cert, idx) => {
+        const card = document.createElement('div');
+        card.onclick = () => openLightbox(cert.img, cert.title, cert.tag);
+        card.className = 'tilt-card cursor-pointer group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 border border-rose-200/70 shadow-sm flex flex-col justify-between p-4';
+        card.innerHTML = `
+          <img src="${cert.img}" onerror="this.style.display='none'" alt="${cert.title}" class="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/55 to-slate-900/20 z-0"></div>
+          <div class="relative z-10 flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-full bg-rose-500/90 text-[10px] font-bold text-white shadow-2xs">
+              ${cert.tag}
+            </span>
+            <span class="w-6 h-6 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center">
+              <span class="iconify text-xs" data-icon="lucide:maximize-2"></span>
+            </span>
+          </div>
+          <div class="relative z-10 text-white">
+            <p class="text-[10px] text-rose-200 font-medium">${cert.issuer}</p>
+            <h4 class="font-display text-xs sm:text-sm font-bold leading-snug mt-0.5 group-hover:text-rose-200 transition-colors">${cert.title}</h4>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function toggleCertGallery() {
+      const grid = document.getElementById('certGalleryContainer');
+      const btn = document.getElementById('toggleCertBtn');
+      if (!grid || !btn) return;
+      if (grid.classList.contains('hidden')) {
+        grid.classList.remove('hidden');
+        grid.classList.add('grid');
+        btn.innerHTML = `<span>Hide Certification Gallery</span><span class="iconify" data-icon="lucide:chevron-up"></span>`;
+      } else {
+        grid.classList.add('hidden');
+        grid.classList.remove('grid');
+        btn.innerHTML = `<span>Show Certification Gallery (6)</span><span class="iconify" data-icon="lucide:chevron-down"></span>`;
+      }
+    }
+
+    // =========================================================================
+    // FEATURE 2: WORK DOCUMENTATION GALLERY DATA & RENDERER
+    // =========================================================================
+    const workDocumentationItems = [
+      { title: "Human Capital Administration & Recruitment", role: "Bank BRI • Internship", period: "Aug – Sep 2025", img: IMAGE_CONFIG.workDocumentation.doc1, accent: "blue" },
+      { title: "Competency Assessment & FGD Facilitation", role: "HRBP Observer & Facilitator", period: "Feb – Sep 2025", img: IMAGE_CONFIG.workDocumentation.doc2, accent: "rose" },
+      { title: "Behavioral Simulation & Coaching Session", role: "HRBP Project-Based", period: "2025", img: IMAGE_CONFIG.workDocumentation.doc3, accent: "blue" },
+      { title: "Classical Psychological Testing (200+ Students)", role: "Psychological Assessor", period: "July 2026", img: IMAGE_CONFIG.workDocumentation.doc4, accent: "rose" },
+      { title: "Standardized Exam Proctoring & Evaluation", role: "Assessment Test Psychology", period: "July 2026", img: IMAGE_CONFIG.workDocumentation.doc5, accent: "blue" },
+      { title: "Employer Branding & Content Production", role: "Marketing Communication", period: "Jan – Dec 2025", img: IMAGE_CONFIG.workDocumentation.doc6, accent: "rose" }
+    ];
+
+    function renderWorkDocsGallery() {
+      const container = document.getElementById('workDocsGalleryContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      workDocumentationItems.forEach((doc) => {
+        const card = document.createElement('div');
+        card.onclick = () => openLightbox(doc.img, doc.title, doc.role);
+        card.className = 'tilt-card cursor-pointer group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900 border border-blue-100 shadow-sm flex flex-col justify-between p-4';
+        card.innerHTML = `
+          <img src="${doc.img}" onerror="this.style.display='none'" alt="${doc.title}" class="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/40 to-transparent z-0"></div>
+          <div class="relative z-10 flex items-center justify-between">
+            <span class="px-2.5 py-0.5 rounded-full ${doc.accent === 'rose' ? 'bg-rose-500' : 'bg-blue-600'} text-[10px] font-bold text-white shadow-2xs">
+              ${doc.period}
+            </span>
+            <span class="w-6 h-6 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center">
+              <span class="iconify text-xs" data-icon="lucide:zoom-in"></span>
+            </span>
+          </div>
+          <div class="relative z-10 text-white">
+            <p class="text-[10px] text-blue-200 font-medium">${doc.role}</p>
+            <h4 class="font-display text-xs sm:text-sm font-bold leading-snug mt-0.5 group-hover:text-amber-200 transition-colors">${doc.title}</h4>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function toggleWorkDocsGallery() {
+      const grid = document.getElementById('workDocsGalleryContainer');
+      const btn = document.getElementById('toggleWorkDocsBtn');
+      if (!grid || !btn) return;
+      if (grid.classList.contains('hidden')) {
+        grid.classList.remove('hidden');
+        grid.classList.add('grid');
+        btn.innerHTML = `<span>Hide Work Documentation</span><span class="iconify" data-icon="lucide:chevron-up"></span>`;
+      } else {
+        grid.classList.add('hidden');
+        grid.classList.remove('grid');
+        btn.innerHTML = `<span>Show Work Documentation (6)</span><span class="iconify" data-icon="lucide:chevron-down"></span>`;
+      }
+    }
+
+    // LIGHTBOX MODAL HELPERS
+    function openLightbox(imgSrc, title, badge) {
+      const modal = document.getElementById('imageLightbox');
+      const img = document.getElementById('lightboxImg');
+      const titleEl = document.getElementById('lightboxTitle');
+      const badgeEl = document.getElementById('lightboxBadge');
+      if (!modal || !img) return;
+
+      img.src = imgSrc;
+      titleEl.textContent = title || 'Preview';
+      badgeEl.textContent = badge || 'Documentation';
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('imageLightbox');
+      if (!modal) return;
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
     // COPY EMAIL HELPER
     function copyEmail(btn) {
       const email = btn.getAttribute('data-email') || 'career.syiifu@gmail.com';
@@ -1233,6 +1436,8 @@
       renderFanShowcase();
       renderTop10Table(top10Data);
       renderViralReelsGrid(top10Data);
+      renderCertGallery();
+      renderWorkDocsGallery();
 
       const stage = document.getElementById('fanStage');
       if (stage) {
