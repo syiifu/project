@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Syifa Aulia Rahma — Human Capital & Employer Branding Portfolio</title>
+  <meta name="description" content="Official Portfolio of Syifa Aulia Rahma, BNSP-Certified Psychology Graduate specializing in Human Capital, Talent Acquisition, Organizational Assessment, and Employer Branding in Jakarta, Indonesia.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter+Tight:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --font-serif: 'Cormorant Garamond', serif;
+      --font-display: 'Inter Tight', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --bg-warm: #FFFDFB;
+      --text-main: #0F172A;
+      --accent-pink: #F43F5E;
+      --accent-blue: #3B82F6;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-warm);
+      color: var(--text-main);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-serif-editorial { font-family: var(--font-serif); }
+    .font-display { font-family: var(--font-display); }
+
+    /* Warm Cheerful Pink & Blue Ambient Mesh */
+    .ambient-mesh {
+      background: 
+        radial-gradient(circle at 12% 18%, rgba(254, 205, 211, 0.55) 0%, transparent 42%),
+        radial-gradient(circle at 88% 22%, rgba(191, 219, 254, 0.6) 0%, transparent 45%),
+        radial-gradient(circle at 50% 65%, rgba(252, 231, 243, 0.45) 0%, transparent 50%),
+        radial-gradient(circle at 20% 90%, rgba(219, 234, 254, 0.5) 0%, transparent 45%);
+    }
+
+    /* 3D Chapter-to-Chapter Scroll Motion */
+    .chapter-3d-wrapper {
+      perspective: 1400px;
+    }
+
+    .chapter-3d {
+      opacity: 0;
+      transform: translateY(60px) translateZ(-60px) rotateX(7deg) scale(0.96);
+      filter: blur(4px);
+      transition: 
+        opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+        filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity, filter;
+    }
+
+    .chapter-3d.is-visible {
+      opacity: 1;
+      transform: translateY(0) translateZ(0) rotateX(0deg) scale(1);
+      filter: blur(0px);
+    }
+
+    /* Zevana-Style 4-Card Fan-Out Animation */
+    .fan-stage {
+      perspective: 1200px;
+      position: relative;
+      height: 430px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .fan-card {
+      position: absolute;
+      width: 230px;
+      height: 340px;
+      border-radius: 24px;
+      transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      box-shadow: 0 20px 45px -15px rgba(15, 23, 42, 0.25);
+      transform-style: preserve-3d;
+      user-select: none;
+    }
+
+    @media (max-width: 768px) {
+      .fan-stage { height: 350px; }
+      .fan-card { width: 170px; height: 260px; }
+    }
+
+    /* Stacked State (Before Fan-Out) */
+    .fan-stage.stacked .fan-card {
+      transform: translateX(0px) translateY(20px) scale(0.88) rotateZ(0deg) !important;
+      opacity: 0;
+    }
+    .fan-stage.stacked .fan-card[data-pos="0"] {
+      opacity: 1;
+      transform: translateX(0px) translateY(0px) scale(1) rotateZ(0deg) !important;
+      z-index: 30;
+    }
+
+    /* Fanned Out Positions for 4 Cards (-1, 0, 1, 2) */
+    .fan-card[data-pos="-1"] {
+      transform: translateX(-215px) translateY(12px) scale(0.91) rotateY(8deg) rotateZ(-4deg);
+      z-index: 20;
+      opacity: 0.95;
+    }
+    .fan-card[data-pos="0"] {
+      transform: translateX(0px) translateY(-10px) scale(1.06) rotateY(0deg) rotateZ(0deg);
+      z-index: 30;
+      opacity: 1;
+      box-shadow: 0 28px 60px -12px rgba(244, 63, 94, 0.32), 0 0 30px rgba(59, 130, 246, 0.2);
+    }
+    .fan-card[data-pos="1"] {
+      transform: translateX(215px) translateY(12px) scale(0.91) rotateY(-8deg) rotateZ(4deg);
+      z-index: 20;
+      opacity: 0.95;
+    }
+    .fan-card[data-pos="2"] {
+      transform: translateX(400px) translateY(30px) scale(0.82) rotateY(-14deg) rotateZ(7deg);
+      z-index: 10;
+      opacity: 0.85;
+    }
+
+    @media (max-width: 1024px) {
+      .fan-card[data-pos="-1"] { transform: translateX(-140px) translateY(10px) scale(0.88) rotateZ(-4deg); }
+      .fan-card[data-pos="1"]  { transform: translateX(140px) translateY(10px) scale(0.88) rotateZ(4deg); }
+      .fan-card[data-pos="2"]  { transform: translateX(255px) translateY(24px) scale(0.76) rotateZ(7deg); }
+    }
+
+    @media (max-width: 640px) {
+      .fan-card[data-pos="-1"] { transform: translateX(-75px) scale(0.84) rotateZ(-4deg); }
+      .fan-card[data-pos="1"]  { transform: translateX(75px) scale(0.84) rotateZ(4deg); }
+      .fan-card[data-pos="2"]  { transform: translateX(135px) scale(0.7) rotateZ(8deg); opacity: 0.5; }
+    }
+
+    /* 3D Card Tilt Hover */
+    .tilt-card {
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+    }
+    .tilt-card:hover {
+      transform: translateY(-6px) rotateX(2deg) rotateY(-1.5deg);
+      box-shadow: 0 20px 40px -15px rgba(244, 63, 94, 0.15), 0 10px 25px -10px rgba(59, 130, 246, 0.12);
+    }
+  </style>
+</head>
+<body class="selection:bg-rose-200 selection:text-slate-900">
+
+  <!-- Ambient Cheerful Pink & Blue Background -->
+  <div class="fixed inset-0 pointer-events-none -z-10 ambient-mesh"></div>
+
+  <!-- ZEVANA-INSPIRED TOP NAVIGATION BAR -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#FFFDFB]/85 backdrop-blur-xl border-b border-rose-100/80 transition-all duration-300">
+    <div class="max-w-[1280px] mx-auto px-6 py-4 flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-2.5 group">
+        <span class="iconify text-xl text-rose-500 group-hover:rotate-90 transition-transform duration-500" data-icon="mdi:four-points-star"></span>
+        <span class="font-serif-editorial text-xl md:text-2xl font-bold tracking-wider uppercase text-slate-900">
+          SYIFA AULIA RAHMA
+        </span>
+      </a>
+
+      <!-- Center Navigation Links -->
+      <div class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-slate-500">
+        <a href="#showcase" class="hover:text-rose-500 transition-colors">Showcase</a>
+        <a href="#analytics" class="hover:text-blue-600 transition-colors">Analytics Data</a>
+        <a href="#experience" class="hover:text-blue-600 transition-colors">CV & Experience</a>
+        <a href="#about" class="hover:text-rose-500 transition-colors">About</a>
+      </div>
+
+      <!-- Right Action Pills -->
+      <div class="flex items-center gap-2.5">
+        <a href="#analytics" title="Explore Analytics" class="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center hover:bg-rose-500 transition-colors">
+          <span class="iconify text-base" data-icon="lucide:bar-chart-2"></span>
+        </a>
+        <a href="#experience" title="BNSP Certified HR" class="w-10 h-10 rounded-full bg-slate-900 text-white flex items-center justify-center hover:bg-blue-600 transition-colors">
+          <span class="iconify text-base" data-icon="lucide:briefcase"></span>
+        </a>
+        <button onclick="copyEmail(this)" data-email="career.syiifu@gmail.com" class="flex items-center gap-2.5 bg-slate-900 text-white pl-3 pr-5 py-2 rounded-full text-xs font-medium hover:bg-gradient-to-r hover:from-rose-500 hover:to-blue-600 transition-all shadow-sm active:scale-95">
+          <span class="w-6 h-6 rounded-full bg-white text-slate-900 flex items-center justify-center">
+            <span class="iconify text-xs" data-icon="lucide:mail"></span>
+          </span>
+          <span class="btn-text">Contact Me</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="chapter-3d-wrapper pt-24">
+
+    <!-- =====================================================================
+         CHAPTER 1: ZEVANA-STYLE HERO + 4-CARD FAN-OUT & CAROUSEL SHOWCASE
+    ====================================================================== -->
+    <section id="showcase" class="chapter-3d is-visible max-w-[1280px] mx-auto px-4 sm:px-6 pt-4 pb-16">
+      
+      <div id="heroStageCard" class="relative rounded-[32px] bg-gradient-to-b from-slate-950 via-slate-900 to-[#FFFDFB] text-white pt-10 pb-8 px-6 md:px-12 shadow-xl border border-rose-200/40 overflow-hidden transition-colors duration-1000">
+        
+        <!-- Top Decorative Glow Inside Hero -->
+        <div class="absolute -top-24 left-1/4 w-96 h-96 bg-rose-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -top-24 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Split Editorial Header -->
+        <div class="relative z-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start border-b border-white/10 pb-8">
+          <div class="lg:col-span-5 space-y-3">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[11px] font-medium text-rose-200">
+              <span class="w-2 h-2 rounded-full bg-rose-400 animate-ping"></span>
+              <span class="w-2 h-2 rounded-full bg-rose-400 -ml-4"></span>
+              BNSP HR Certified • Psychology Graduate
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-md">
+              Hi! I am <strong class="text-white font-semibold">Syifa Aulia Rahma</strong>. I craft human-centered talent strategies and high-impact employer branding campaigns — turning psychological insights and data analytics into measurable organizational growth.
+            </p>
+            <div class="pt-2 flex flex-wrap items-center gap-3">
+              <a href="#contact" class="bg-gradient-to-r from-rose-500 to-blue-500 text-white px-5 py-2.5 rounded-full text-xs font-semibold hover:opacity-95 transition-all flex items-center gap-1.5 shadow-md">
+                Contact Me <span class="iconify" data-icon="lucide:arrow-up-right"></span>
+              </a>
+              <a href="#analytics" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-5 py-2.5 rounded-full text-xs font-medium transition-all">
+                View 15.3M+ Views Data
+              </a>
+              <button onclick="replayFanAnimation()" class="text-[11px] text-rose-300 hover:text-white underline underline-offset-4 ml-1 flex items-center gap-1">
+                <span class="iconify" data-icon="lucide:sparkles"></span> Replay Fan-Out
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 lg:text-right">
+            <h1 class="font-serif-editorial text-3xl sm:text-5xl lg:text-[54px] font-semibold tracking-tight leading-[1.05] uppercase text-white">
+              DESIGNED TO MAKE <br>
+              <span class="bg-gradient-to-r from-rose-300 via-pink-200 to-blue-300 bg-clip-text text-transparent">PEOPLE & BRANDS THRIVE.</span>
+            </h1>
+          </div>
+        </div>
+
+        <!-- 4-CARD FAN-OUT INTERACTIVE STAGE -->
+        <div id="fanStage" class="fan-stage stacked my-4"
+             onmouseenter="pauseAutoRotate()"
+             onmouseleave="resumeAutoRotate()">
+        </div>
+
+        <!-- Active Card Live Caption & Carousel Controls -->
+        <div class="relative z-30 flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 px-2">
+          <div id="activeCardCaption" class="text-center sm:text-left">
+            <span id="captionBadge" class="inline-block text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-rose-500 text-white shadow-sm">
+              Employer Branding
+            </span>
+            <h2 id="captionTitle" class="text-lg sm:text-xl font-display font-bold text-slate-900 mt-1">
+              15.3M+ Organic Views & +1,185% Follower Growth
+            </h2>
+            <p id="captionDesc" class="text-xs text-slate-600">
+              203 Reels Analyzed • 853,170 Total Engagement • 5.6% ER (0% Ads)
+            </p>
+          </div>
+
+          <div class="flex items-center gap-2.5">
+            <button onclick="rotateCarousel(-1)" aria-label="Previous Showcase" class="w-12 h-9 rounded-full border border-slate-300 bg-white/90 text-slate-800 hover:bg-rose-500 hover:text-white hover:border-rose-500 transition-all flex items-center justify-center shadow-sm active:scale-95">
+              <span class="iconify text-base" data-icon="lucide:move-left"></span>
+            </button>
+            <button onclick="rotateCarousel(1)" aria-label="Next Showcase" class="w-12 h-9 rounded-full border border-slate-300 bg-white/90 text-slate-800 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all flex items-center justify-center shadow-sm active:scale-95">
+              <span class="iconify text-base" data-icon="lucide:move-right"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- BOTTOM SYNCHRONIZED THUMBNAIL STRIP (4 Columns for 4 Main Cards) -->
+        <div id="bottomStrip" class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 pt-6 border-t border-slate-200/80">
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         CHAPTER 2: FULL EMPLOYER BRANDING & REELS ANALYTICS DASHBOARD
+    ====================================================================== -->
+    <section id="analytics" class="chapter-3d max-w-[1280px] mx-auto px-6 py-20">
+      
+      <!-- Section Heading -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-rose-50 border border-rose-200 text-rose-600 text-xs font-semibold mb-3">
+            <span class="iconify" data-icon="lucide:line-chart"></span>
+            Verified Data Analytics • 11 Dec 2024 – 26 Sep 2025
+          </div>
+          <h2 class="font-display text-3xl md:text-5xl font-bold tracking-tight text-slate-900">
+            Analisis Engagement <span class="bg-gradient-to-r from-rose-500 to-blue-600 bg-clip-text text-transparent">Konten Reels</span>
+          </h2>
+          <p class="text-sm md:text-base text-slate-600 mt-2 max-w-2xl">
+            End-to-end psychological niche research, content strategy, and audience data analytics — scaling organic audience from 7,000 to 90,000+ followers (~1,185% YoY) with <strong>0.0% ad spend</strong>.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 text-xs font-semibold text-slate-600 bg-white px-4 py-2.5 rounded-2xl border border-slate-200 shadow-sm">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+          Seluruh angka terhubung ke Data Konten (203 Reels)
+        </div>
+      </div>
+
+      <!-- 5 HERO KPI BENTO CARDS -->
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-10">
+        <div class="tilt-card bg-white p-6 rounded-3xl border border-rose-100 shadow-sm relative overflow-hidden">
+          <div class="w-9 h-9 rounded-2xl bg-rose-50 text-rose-500 flex items-center justify-center mb-3">
+            <span class="iconify text-lg" data-icon="lucide:clapperboard"></span>
+          </div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Total Konten</p>
+          <p class="font-display text-3xl md:text-4xl font-bold text-slate-900 mt-1">203</p>
+          <p class="text-[11px] text-rose-600 font-medium mt-2">Reels Analyzed End-to-End</p>
+        </div>
+
+        <div class="tilt-card bg-white p-6 rounded-3xl border border-blue-100 shadow-sm relative overflow-hidden">
+          <div class="w-9 h-9 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
+            <span class="iconify text-lg" data-icon="lucide:eye"></span>
+          </div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Total Views</p>
+          <p class="font-display text-3xl md:text-4xl font-bold text-slate-900 mt-1">15.301.881</p>
+          <p class="text-[11px] text-blue-600 font-medium mt-2">100% Organic (0.0% Ads)</p>
+        </div>
+
+        <div class="tilt-card bg-white p-6 rounded-3xl border border-rose-100 shadow-sm relative overflow-hidden">
+          <div class="w-9 h-9 rounded-2xl bg-rose-50 text-rose-500 flex items-center justify-center mb-3">
+            <span class="iconify text-lg" data-icon="lucide:heart-handshake"></span>
+          </div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Total Engagement</p>
+          <p class="font-display text-3xl md:text-4xl font-bold text-slate-900 mt-1">853.170</p>
+          <p class="text-[11px] text-rose-600 font-medium mt-2">Likes, Share, Saved, Comments</p>
+        </div>
+
+        <div class="tilt-card bg-white p-6 rounded-3xl border border-blue-100 shadow-sm relative overflow-hidden">
+          <div class="w-9 h-9 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
+            <span class="iconify text-lg" data-icon="lucide:bar-chart-big"></span>
+          </div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Rata-rata / Konten</p>
+          <p class="font-display text-3xl md:text-4xl font-bold text-slate-900 mt-1">4.203</p>
+          <p class="text-[11px] text-blue-600 font-medium mt-2">4.202,8 Interaksi / Reels</p>
+        </div>
+
+        <div class="tilt-card col-span-2 md:col-span-1 bg-gradient-to-br from-rose-500 to-blue-600 text-white p-6 rounded-3xl shadow-md relative overflow-hidden">
+          <div class="w-9 h-9 rounded-2xl bg-white/20 text-white flex items-center justify-center mb-3">
+            <span class="iconify text-lg" data-icon="lucide:flame"></span>
+          </div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-rose-100">Engagement Rate</p>
+          <p class="font-display text-3xl md:text-4xl font-bold mt-1">5,6%</p>
+          <p class="text-[11px] text-rose-100 font-medium mt-2">5,58% Rasio terhadap Views</p>
+        </div>
+      </div>
+
+      <!-- SPLIT BENTO: 1. RINGKASAN KOMPONEN INTERAKSI + 2. INSTAGRAM MONTHLY INSIGHTS -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-12">
+        
+        <!-- Table 1: Ringkasan per Komponen Interaksi (Reels) -->
+        <div class="lg:col-span-7 bg-white p-6 md:p-8 rounded-3xl border border-rose-100 shadow-sm">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-widest text-rose-500">Tabel 1 • Breakdown Interaksi</span>
+              <h3 class="font-display text-xl font-bold text-slate-900 mt-0.5">1. Ringkasan per Komponen Interaksi (Reels)</h3>
+            </div>
+            <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold">Total: 853.170</span>
+          </div>
+
+          <div class="mb-6">
+            <div class="h-4 w-full rounded-full overflow-hidden flex bg-slate-100 p-0.5 gap-0.5">
+              <div style="width: 53.0%" class="bg-rose-500 rounded-l-full" title="Likes: 53.0%"></div>
+              <div style="width: 32.7%" class="bg-blue-500" title="Share: 32.7%"></div>
+              <div style="width: 12.9%" class="bg-amber-400" title="Saved: 12.9%"></div>
+              <div style="width: 0.8%" class="bg-emerald-500" title="Repost: 0.8%"></div>
+              <div style="width: 0.7%" class="bg-purple-500 rounded-r-full" title="Comments: 0.7%"></div>
+            </div>
+            <div class="flex flex-wrap items-center gap-4 mt-2.5 text-[11px] font-medium text-slate-600">
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>Likes (53,0%)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-blue-500"></span>Share (32,7%)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>Saved (12,9%)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>Repost (0,8%)</span>
+              <span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-full bg-purple-500"></span>Comments (0,7%)</span>
+            </div>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs sm:text-sm">
+              <thead>
+                <tr class="border-b border-slate-200 text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                  <th class="py-3 pr-2">Komponen Interaksi</th>
+                  <th class="py-3 px-2 text-right">Total</th>
+                  <th class="py-3 px-2 text-right">% Engagement</th>
+                  <th class="py-3 px-2 text-right">Rata-rata / Konten</th>
+                  <th class="py-3 px-2 text-right">Nilai Tertinggi (1 Konten)</th>
+                  <th class="py-3 pl-2 text-right">Rasio thd Views</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 text-slate-700">
+                <tr class="hover:bg-rose-50/40 transition-colors">
+                  <td class="py-3 pr-2 font-semibold text-slate-900 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-rose-500"></span> Likes
+                  </td>
+                  <td class="py-3 px-2 text-right font-medium">452.378</td>
+                  <td class="py-3 px-2 text-right text-rose-600 font-semibold">53,0%</td>
+                  <td class="py-3 px-2 text-right">2.228,5</td>
+                  <td class="py-3 px-2 text-right font-medium">51.830</td>
+                  <td class="py-3 pl-2 text-right">2,96%</td>
+                </tr>
+                <tr class="hover:bg-blue-50/40 transition-colors">
+                  <td class="py-3 pr-2 font-semibold text-slate-900 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-purple-500"></span> Comments
+                  </td>
+                  <td class="py-3 px-2 text-right font-medium">5.784</td>
+                  <td class="py-3 px-2 text-right">0,7%</td>
+                  <td class="py-3 px-2 text-right">28,5</td>
+                  <td class="py-3 px-2 text-right font-medium">603</td>
+                  <td class="py-3 pl-2 text-right">0,04%</td>
+                </tr>
+                <tr class="hover:bg-blue-50/40 transition-colors">
+                  <td class="py-3 pr-2 font-semibold text-slate-900 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-blue-500"></span> Share
+                  </td>
+                  <td class="py-3 px-2 text-right font-medium">278.617</td>
+                  <td class="py-3 px-2 text-right text-blue-600 font-semibold">32,7%</td>
+                  <td class="py-3 px-2 text-right">1.372,5</td>
+                  <td class="py-3 px-2 text-right font-medium">37.140</td>
+                  <td class="py-3 pl-2 text-right">1,82%</td>
+                </tr>
+                <tr class="hover:bg-rose-50/40 transition-colors">
+                  <td class="py-3 pr-2 font-semibold text-slate-900 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-amber-400"></span> Saved
+                  </td>
+                  <td class="py-3 px-2 text-right font-medium">109.978</td>
+                  <td class="py-3 px-2 text-right font-semibold text-amber-600">12,9%</td>
+                  <td class="py-3 px-2 text-right">541,8</td>
+                  <td class="py-3 px-2 text-right font-medium">14.508</td>
+                  <td class="py-3 pl-2 text-right">0,72%</td>
+                </tr>
+                <tr class="hover:bg-blue-50/40 transition-colors">
+                  <td class="py-3 pr-2 font-semibold text-slate-900 flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Repost
+                  </td>
+                  <td class="py-3 px-2 text-right font-medium">6.413</td>
+                  <td class="py-3 px-2 text-right">0,8%</td>
+                  <td class="py-3 px-2 text-right">31,6</td>
+                  <td class="py-3 px-2 text-right font-medium">1.150</td>
+                  <td class="py-3 pl-2 text-right">0,04%</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr class="border-t-2 border-slate-200 font-bold text-slate-900 bg-slate-50/70">
+                  <td class="py-3 pr-2 rounded-bl-xl pl-2">Total Engagement</td>
+                  <td class="py-3 px-2 text-right">853.170</td>
+                  <td class="py-3 px-2 text-right">100,0%</td>
+                  <td class="py-3 px-2 text-right">4.202,8</td>
+                  <td class="py-3 px-2 text-right">—</td>
+                  <td class="py-3 pl-2 pr-2 text-right text-rose-600 rounded-br-xl">5,58%</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+
+        <!-- Card 2: Interactive Instagram Monthly Insights Switcher -->
+        <div class="lg:col-span-5 bg-white p-6 md:p-8 rounded-3xl border border-blue-100 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-5">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-widest text-blue-600">Instagram Insights</span>
+                <h3 class="font-display text-xl font-bold text-slate-900">Monthly Reach & Profile Activity</h3>
+              </div>
+              <div class="inline-flex rounded-full bg-slate-100 p-1 text-[11px] font-semibold">
+                <button onclick="switchInsightPeriod('jun-jul')" id="tab-jun-jul" class="px-3 py-1 rounded-full bg-slate-900 text-white transition-all">Jun 29–Jul 29</button>
+                <button onclick="switchInsightPeriod('jul-aug')" id="tab-jul-aug" class="px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 transition-all">Jul 29–Aug 26</button>
+                <button onclick="switchInsightPeriod('may-jun')" id="tab-may-jun" class="px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 transition-all">May 29–Jun 29</button>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-rose-50/50 via-white to-blue-50/50 rounded-2xl p-5 border border-slate-100 mb-5">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p id="insightPeriodLabel" class="text-xs font-medium text-slate-500">Period: Jun 29 – Jul 29 (0.0% from ads)</p>
+                  <p id="insightTotalViews" class="font-display text-3xl font-bold text-slate-900 mt-1">3,088,790 <span class="text-xs font-normal text-slate-500">Views</span></p>
+                  <p id="insightReached" class="text-xs font-semibold text-emerald-600 mt-1">Accounts Reached: 1,754,695 (+69.0%)</p>
+                </div>
+                <div class="w-16 h-16 rounded-full border-[6px] border-blue-600 border-t-rose-500 flex flex-col items-center justify-center text-[10px] font-bold text-slate-800 shadow-inner">
+                  <span id="insightNonFollowerPct">89.9%</span>
+                  <span class="text-[8px] font-normal text-slate-400">Non-Follow</span>
+                </div>
+              </div>
+
+              <div class="mt-4 space-y-2 text-xs">
+                <div class="flex justify-between text-[11px] font-medium">
+                  <span class="text-rose-600">● Followers: <strong id="insightFollowerText">10.1%</strong></span>
+                  <span class="text-blue-600">● Non-Followers: <strong id="insightNonFollowerText">89.9%</strong></span>
+                </div>
+                <div class="pt-2 border-t border-slate-200/60 space-y-1.5">
+                  <div class="flex items-center justify-between text-[11px]">
+                    <span class="font-medium text-slate-600">Reels Contribution</span>
+                    <span id="insightReelsPct" class="font-bold text-slate-900">91.0%</span>
+                  </div>
+                  <div class="w-full h-2 rounded-full bg-slate-100 overflow-hidden">
+                    <div id="insightReelsBar" style="width: 91%" class="h-full bg-gradient-to-r from-rose-500 to-blue-600 rounded-full transition-all duration-500"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="p-4 rounded-2xl bg-rose-50/50 border border-rose-100">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-bold uppercase text-slate-500">Apr 27 – May 28</span>
+                <span class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">+43.1%</span>
+              </div>
+              <p class="font-display text-xl font-bold text-slate-900 mt-1">17,686</p>
+              <p class="text-[11px] text-slate-500">Profile Visits: <strong>17,578</strong> (+43%)</p>
+              <p class="text-[11px] text-slate-500">Link Taps: <strong>108</strong> (+56.5%)</p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-blue-50/50 border border-blue-100">
+              <div class="flex items-center justify-between">
+                <span class="text-[10px] font-bold uppercase text-slate-500">May 29 – Jun 28</span>
+                <span class="text-[11px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">+33.2%</span>
+              </div>
+              <p class="font-display text-xl font-bold text-slate-900 mt-1">22,347</p>
+              <p class="text-[11px] text-slate-500">Profile Visits: <strong>22,217</strong> (+33.2%)</p>
+              <p class="text-[11px] text-slate-500">Link Taps: <strong>130</strong> (+31.3%)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TOP 10 KONTEN DENGAN ENGAGEMENT TERTINGGI -->
+      <div class="bg-white p-6 md:p-8 rounded-3xl border border-slate-200/80 shadow-sm">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-widest text-blue-600">Tabel 2 & Grafik • Leaderboard</span>
+            <h3 class="font-display text-xl md:text-2xl font-bold text-slate-900">2. Top 10 Konten berdasarkan Total Engagement</h3>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-xs text-slate-400 font-medium mr-1">Sort by:</span>
+            <button onclick="sortTop10('engagement')" id="sort-engagement" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white transition-all">
+              Highest Engagement
+            </button>
+            <button onclick="sortTop10('views')" id="sort-views" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-rose-50 hover:text-rose-600 transition-all">
+              Highest Views (2.12M)
+            </button>
+            <button onclick="sortTop10('er')" id="sort-er" class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-all">
+              Highest ER% (12.4%)
+            </button>
+          </div>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs sm:text-sm">
+            <thead>
+              <tr class="border-b-2 border-slate-200 text-[11px] font-bold uppercase tracking-wider text-slate-400">
+                <th class="py-3 px-2 w-12 text-center">#</th>
+                <th class="py-3 px-3">Judul Konten</th>
+                <th class="py-3 px-2">Jenis</th>
+                <th class="py-3 px-3">Tanggal</th>
+                <th class="py-3 px-3 text-right">Views</th>
+                <th class="py-3 px-4 w-64">Total Engagement (Visual Bar)</th>
+                <th class="py-3 px-2 text-right">Engagement Rate</th>
+              </tr>
+            </thead>
+            <tbody id="top10TableBody" class="divide-y divide-slate-100">
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Collapsible Top 10 Reels Thumbnail Drawer (Synced with top10Data) -->
+        <div class="mt-8 pt-6 border-t border-slate-100">
+          <div class="flex items-center justify-between">
+            <p class="text-xs font-semibold text-slate-500">Visual Hook & Content Thumbnail Archive (Top 10 Viral Reels)</p>
+            <button onclick="toggleReelsArchive()" id="toggleReelsBtn" class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-600 hover:text-blue-600 transition-colors">
+              <span>Show Top 10 Viral Thumbnails</span>
+              <span class="iconify" data-icon="lucide:chevron-down"></span>
+            </button>
+          </div>
+          <div id="reelsGridContainer" class="hidden grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mt-6">
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =====================================================================
+         CHAPTER 3: OFFICIAL CV — ABOUT, EXPERIENCE & SKILLS
+    ====================================================================== -->
+    <section id="about" class="chapter-3d max-w-[1280px] mx-auto px-6 py-20 border-t border-rose-100">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- Left Column: Profile Summary, Education & Certifications -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="tilt-card bg-white p-7 rounded-3xl border border-rose-100 shadow-sm">
+            <span class="text-xs font-bold uppercase tracking-widest text-rose-500">Executive Profile</span>
+            <h2 class="font-display text-2xl font-bold text-slate-900 mt-1">Syifa Aulia Rahma</h2>
+            <p class="text-xs font-semibold text-blue-600 mt-0.5">Jakarta, Indonesia • BNSP Certified HR</p>
+            <p class="text-sm text-slate-600 leading-relaxed mt-4">
+              Results-driven Psychology graduate with a <strong>BNSP HR Certification</strong> and foundational experience in Human Capital operations, end-to-end recruitment, and organizational assessment. Proficient in Microsoft Office (Excel, PowerPoint, Word) and tech-savvy in adopting digital HR tools. Recognized for strong analytical problem-solving and stakeholder management skills through internships and roles. Eager to support employee lifecycle management, continuous improvement, and L&D initiatives within a dynamic multinational environment.
+            </p>
+          </div>
+
+          <!-- Education Card -->
+          <div class="tilt-card bg-gradient-to-br from-blue-50/70 to-white p-7 rounded-3xl border border-blue-100 shadow-sm">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase tracking-widest text-blue-600">Education</span>
+              <span class="text-xs font-semibold px-3 py-0.5 rounded-full bg-blue-100 text-blue-700">2022 – 2026</span>
+            </div>
+            <h3 class="font-display text-lg font-bold text-slate-900">Universitas Mercu Buana</h3>
+            <p class="text-xs text-slate-500">Jakarta, Indonesia</p>
+            <div class="mt-3 pt-3 border-t border-blue-100 flex items-center justify-between text-sm">
+              <span class="font-medium text-slate-700">Bachelor of Psychology (S.Psi)</span>
+            </div>
+          </div>
+
+          <!-- Training & Certifications Card -->
+          <div class="tilt-card bg-gradient-to-br from-rose-50/70 to-white p-7 rounded-3xl border border-rose-100 shadow-sm">
+            <span class="text-xs font-bold uppercase tracking-widest text-rose-500">Training & Certifications</span>
+            <ul class="mt-4 space-y-3 text-xs sm:text-sm font-medium text-slate-800">
+              <li class="flex items-center gap-3 p-2.5 rounded-xl bg-white border border-rose-100 shadow-2xs">
+                <span class="iconify text-lg text-rose-500 shrink-0" data-icon="lucide:shield-check"></span>
+                <span><strong>BNSP</strong> Recruitment Supervisor and Human Resource</span>
+              </li>
+              <li class="flex items-center gap-3 px-2">
+                <span class="iconify text-base text-blue-500 shrink-0" data-icon="lucide:check-circle-2"></span>
+                <span>Classical Administration Testing</span>
+              </li>
+              <li class="flex items-center gap-3 px-2">
+                <span class="iconify text-base text-rose-500 shrink-0" data-icon="lucide:check-circle-2"></span>
+                <span>Candidate Selection Proficiency</span>
+              </li>
+              <li class="flex items-center gap-3 px-2">
+                <span class="iconify text-base text-blue-500 shrink-0" data-icon="lucide:check-circle-2"></span>
+                <span>Interview & Interviewing Skills Training</span>
+              </li>
+              <li class="flex items-center gap-3 px-2">
+                <span class="iconify text-base text-rose-500 shrink-0" data-icon="lucide:check-circle-2"></span>
+                <span>Career Coaching & Psychoeducation</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right Column: 4 Core Professional Experiences & Skills -->
+        <div id="experience" class="lg:col-span-7 space-y-6">
+          <div class="bg-white p-7 md:p-9 rounded-3xl border border-slate-200/80 shadow-sm">
+            <div class="flex items-center justify-between mb-6">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-widest text-blue-600">Career Track Record</span>
+                <h2 class="font-display text-2xl font-bold text-slate-900">Professional Experience</h2>
+              </div>
+              <span class="text-xs font-medium text-slate-400">4 Key Roles</span>
+            </div>
+
+            <div class="space-y-6 divide-y divide-slate-100">
+              <!-- Role 1 -->
+              <div class="pt-2">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <h3 class="font-display text-lg font-bold text-slate-900">1. Employer Branding</h3>
+                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-rose-50 text-rose-600 border border-rose-100">Jan 2025 – Dec 2025</span>
+                </div>
+                <p class="text-xs font-semibold text-slate-500 mt-0.5">Marketing Communication | Hybrid</p>
+                <ul class="mt-3 space-y-1.5 text-xs sm:text-sm text-slate-600 list-disc list-inside leading-relaxed">
+                  <li>Directed end-to-end employer branding and engagement strategies, encompassing psychological niche research, behavioral interview question formulation, and targeted corporate communications.</li>
+                  <li>Conducted comprehensive data analytics on content performance (tracking metrics for over <strong>200+ contents</strong>), leading to strategic audience growth from <strong>7,000 to 90,000 followers (~1,185% YoY)</strong> and generating over <strong>15.3 million organic views</strong>.</li>
+                  <li>Acted as key liaison and executive assistant for event management, handling speaker scheduling, rate card negotiations, and drafting Terms and Conditions (TnC) for strategic partnerships.</li>
+                  <li>Managed cross-functional stakeholder communication and executed commercial event deals to maximize brand visibility and commercial impact.</li>
+                </ul>
+              </div>
+
+              <!-- Role 2 -->
+              <div class="pt-6">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <h3 class="font-display text-lg font-bold text-slate-900">2. Human Resource Business Partner</h3>
+                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-50 text-blue-600 border border-blue-100">Feb 2025 – Sep 2025</span>
+                </div>
+                <p class="text-xs font-semibold text-slate-500 mt-0.5">Observer & Facilitator | Project-Based</p>
+                <ul class="mt-3 space-y-1.5 text-xs sm:text-sm text-slate-600 list-disc list-inside leading-relaxed">
+                  <li>Facilitated competency-based assessments and coaching programs for cross-functional teams (Sales, CRM, Operations) utilizing organizational psychology approaches and behavioral simulations.</li>
+                  <li>Conducted behavioral observations and verbatim coding analysis from FGDs to evaluate core employee competencies, including adaptability, problem-solving, and integrity.</li>
+                  <li>Collaborated with management and internal stakeholders to formulate strategic Human Capital initiatives, focusing on organizational transformation, operational excellence, and employee resilience.</li>
+                  <li>Compiled and analyzed assessment data to provide data-driven recommendations, aligning workforce capabilities with business growth targets.</li>
+                </ul>
+              </div>
+
+              <!-- Role 3 -->
+              <div class="pt-6">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <h3 class="font-display text-lg font-bold text-slate-900">3. Assessor Test</h3>
+                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-rose-50 text-rose-600 border border-rose-100">July 2026</span>
+                </div>
+                <p class="text-xs font-semibold text-slate-500 mt-0.5">Assessment Test Psychology | Freelancer</p>
+                <ul class="mt-3 space-y-1.5 text-xs sm:text-sm text-slate-600 list-disc list-inside leading-relaxed">
+                  <li>Facilitated the end-to-end administration of psychological assessments for approximately <strong>200 incoming students</strong>.</li>
+                  <li>Delivered standardized test instructions and actively proctored examination sessions to maintain testing integrity.</li>
+                  <li>Successfully compiled, analyzed, and generated reporting data for all 200 participants within a <strong>three-day turnaround</strong>, ensuring timely and accurate reporting.</li>
+                </ul>
+              </div>
+
+              <!-- Role 4 -->
+              <div class="pt-6">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <h3 class="font-display text-lg font-bold text-slate-900">4. Human Capital Administration</h3>
+                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-blue-50 text-blue-600 border border-blue-100">Aug – Sep 2025</span>
+                </div>
+                <p class="text-xs font-semibold text-slate-500 mt-0.5">Bank BRI | Internship</p>
+                <ul class="mt-3 space-y-1.5 text-xs sm:text-sm text-slate-600 list-disc list-inside leading-relaxed">
+                  <li>Supported day-to-day Human Capital operations, administration, and employee lifecycle activities.</li>
+                  <li>Managed and executed full-lifecycle recruitment and selection process (end-to-end), covering administrative and non-administrative evaluation stages.</li>
+                  <li>Screened, evaluated, and processed personnel records and CVs for over <strong>350+ applicants within a one-month period</strong>.</li>
+                  <li>Conducted and facilitated candidate interviews to assess competencies and ensure alignment with organizational standards.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills & Languages Bento -->
+          <div class="bg-white p-7 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
+            <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400">Skills & Languages</h3>
+            <div>
+              <p class="text-xs font-semibold text-slate-700 mb-2">Hard Skills:</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100">Microsoft Office (Excel, PowerPoint, Word)</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100">Talent Acquisition (End-to-End)</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100">Creative Director</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-100">Content Planning & Scheduling</span>
+              </div>
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-slate-700 mb-2">Soft Skills:</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-100">Time Management</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-100">Adaptability</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-100">Teamwork</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-100">Detail Oriented</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-100">Creative & Highly Self-Motivated</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-100">Effective Communication</span>
+              </div>
+            </div>
+            <div>
+              <p class="text-xs font-semibold text-slate-700 mb-2">Languages:</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white">Bahasa Indonesia (Native)</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white">English (Intermediate)</span>
+                <span class="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white">Korean (Intermediate)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================================================================
+       FOOTER & CONTACT INFORMATION
+  ====================================================================== -->
+  <footer id="contact" class="border-t border-rose-200/60 bg-gradient-to-b from-white via-rose-50/40 to-blue-50/50 py-16 px-6">
+    <div class="max-w-[1280px] mx-auto">
+      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 pb-12 border-b border-rose-200/60">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-rose-500">Ready to Contribute</span>
+          <h2 class="font-serif-editorial text-3xl md:text-5xl font-bold text-slate-900 mt-1">
+            Let's Connect & Collaborate
+          </h2>
+          <p class="text-sm text-slate-600 mt-2">
+            Syifa Aulia Rahma • Jakarta, Indonesia • Open for Human Capital, Talent Acquisition, HRBP & Employer Branding Roles.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-3.5">
+          <a href="mailto:career.syiifu@gmail.com" class="bg-slate-900 hover:bg-rose-500 text-white px-6 py-3.5 rounded-full text-xs font-semibold transition-all flex items-center gap-2 shadow-sm">
+            <span class="iconify text-base" data-icon="lucide:mail"></span>
+            career.syiifu@gmail.com
+          </a>
+          <a href="https://wa.me/6285831814717" target="_blank" rel="noopener noreferrer" class="bg-white border border-rose-200 hover:border-rose-400 text-slate-800 px-6 py-3.5 rounded-full text-xs font-semibold transition-all flex items-center gap-2 shadow-2xs">
+            <span class="iconify text-base text-rose-500" data-icon="lucide:phone"></span>
+            0858-3181-4717
+          </a>
+          <a href="https://www.linkedin.com/in/syiifu/" target="_blank" rel="noopener noreferrer" class="bg-white border border-blue-200 hover:border-blue-400 text-slate-800 px-6 py-3.5 rounded-full text-xs font-semibold transition-all flex items-center gap-2 shadow-2xs">
+            <span class="iconify text-base text-blue-600" data-icon="lucide:linkedin"></span>
+            LinkedIn Profile
+          </a>
+        </div>
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 Syifa Aulia Rahma. Built with Warm Minimalist Pink & Blue Design DNA.</p>
+        <div class="flex items-center gap-6 font-medium">
+          <a href="https://www.linkedin.com/in/syiifu/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">LinkedIn</a>
+          <a href="#showcase" class="hover:text-rose-500">Top Showcase</a>
+          <a href="#analytics" class="hover:text-blue-600">Analytics</a>
+          <a href="#experience" class="hover:text-rose-500">CV & Experience</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       1-SECOND IMAGE PLACEHOLDER CONFIGURATION & INTERACTIVE LOGIC
+  ====================================================================== -->
+  <script>
+    /**
+     * =========================================================================
+     * 🛠️ PUSAT PENGGANTIAN GAMBAR 1-DETIK (IMAGE_CONFIG)
+     * Cukup ganti nama file foto di dalam tanda kutip di bawah ini!
+     * =========================================================================
+     */
+    const IMAGE_CONFIG = {
+      // 1. EMPAT KARTU UTAMA DI ATAS (Hero 4-Card Fan-Out & Strip Bawah)
+      heroCards: {
+        card1_EmployerBranding: "3impres.png",
+        card2_BankBRI:          "1bri.jpg",
+        card3_HRBP:             "6ji.JPG",
+        card4_Assessor:         "4nf.jpg"
+      },
+
+      // Fallback otomatis jika file lokal belum ditemukan
+      heroFallbacks: [
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=900&q=80"
+      ],
+
+      // 2. SEPULUH THUMBNAIL REELS (Sesuai urutan Top 10 Data Konten)
+      reelsThumbnails: {
+        reel1:  "reel-thumb-1.jpg",
+        reel2:  "reel-thumb-2.jpg",
+        reel3:  "reel-thumb-3.jpg",
+        reel4:  "reel-thumb-4.jpg",
+        reel5:  "reel-thumb-5.jpg",
+        reel6:  "reel-thumb-6.jpg",
+        reel7:  "reel-thumb-7.jpg",
+        reel8:  "reel-thumb-8.jpg",
+        reel9:  "reel-thumb-9.jpg",
+        reel10: "reel-thumb-10.jpg"
+      }
+    };
+
+    // =========================================================================
+    // DATA 4 KARTU UTAMA (id: 4 Psychology & BNSP telah dihapus)
+    // =========================================================================
+    const showcaseItems = [
+      {
+        id: 0,
+        badge: "Employer Branding",
+        title: "15.3M+ Organic Views & +1,185% Growth",
+        metric: "90K Followers",
+        desc: "203 Reels Analyzed • 853,170 Engagement • 5.6% ER (0% Ads)",
+        period: "Jan – Dec 2025",
+        accent: "rose",
+        image: IMAGE_CONFIG.heroCards.card1_EmployerBranding,
+        fallback: IMAGE_CONFIG.heroFallbacks[0],
+        target: "#analytics"
+      },
+      {
+        id: 1,
+        badge: "Bank BRI • HC Admin",
+        title: "End-to-End Talent Acquisition",
+        metric: "350+ CVs / Mo",
+        desc: "Full-lifecycle recruitment, CV screening & competency interviews at Bank BRI",
+        period: "Aug – Sep 2025",
+        accent: "blue",
+        image: IMAGE_CONFIG.heroCards.card2_BankBRI,
+        fallback: IMAGE_CONFIG.heroFallbacks[1],
+        target: "#experience"
+      },
+      {
+        id: 2,
+        badge: "HRBP Facilitator",
+        title: "Competency Assessment & Coaching",
+        metric: "Sales, CRM & Ops",
+        desc: "Behavioral simulations, FGD verbatim coding & HC transformation",
+        period: "Feb – Sep 2025",
+        accent: "rose",
+        image: IMAGE_CONFIG.heroCards.card3_HRBP,
+        fallback: IMAGE_CONFIG.heroFallbacks[2],
+        target: "#experience"
+      },
+      {
+        id: 3,
+        badge: "Psychological Assessor",
+        title: "Classical Mass Testing & Evaluation",
+        metric: "200+ Students",
+        desc: "Standardized proctoring & complete evaluation reports in 3-day turnaround",
+        period: "July 2026",
+        accent: "blue",
+        image: IMAGE_CONFIG.heroCards.card4_Assessor,
+        fallback: IMAGE_CONFIG.heroFallbacks[3],
+        target: "#experience"
+      }
+    ];
+
+    let activeIndex = 0;
+    let autoRotateTimer = null;
+
+    function getRelativePos(index, activeIdx, total) {
+      let diff = (index - activeIdx + total) % total;
+      if (diff > Math.floor(total / 2)) diff -= total;
+      return diff;
+    }
+
+    function renderFanShowcase() {
+      const fanStage = document.getElementById('fanStage');
+      const bottomStrip = document.getElementById('bottomStrip');
+      if (!fanStage || !bottomStrip) return;
+
+      fanStage.innerHTML = '';
+      bottomStrip.innerHTML = '';
+
+      const total = showcaseItems.length;
+
+      showcaseItems.forEach((item, index) => {
+        const diff = getRelativePos(index, activeIndex, total);
+
+        const card = document.createElement('div');
+        card.className = 'fan-card overflow-hidden bg-slate-900 border-2 ' + 
+          (diff === 0 ? 'border-rose-400' : 'border-white/40');
+        card.setAttribute('data-pos', diff);
+        card.onclick = () => {
+          if (diff === 0) {
+            document.querySelector(item.target)?.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            activeIndex = index;
+            updateShowcasePositions();
+          }
+        };
+
+        card.innerHTML = `
+          <img src="${item.image}" onerror="this.onerror=null;this.src='${item.fallback}';" alt="${item.title}" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-900/25 to-transparent p-4 flex flex-col justify-between">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${item.accent === 'rose' ? 'bg-rose-500 text-white' : 'bg-blue-600 text-white'}">
+                ${item.badge}
+              </span>
+              <span class="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md text-white flex items-center justify-center">
+                <span class="iconify text-xs" data-icon="lucide:heart"></span>
+              </span>
+            </div>
+            <div class="text-white">
+              <p class="text-[11px] font-semibold text-rose-300">${item.metric}</p>
+              <h3 class="font-display text-sm sm:text-base font-bold leading-tight mt-0.5">${item.title}</h3>
+            </div>
+          </div>
+        `;
+        fanStage.appendChild(card);
+
+        const isCurrent = index === activeIndex;
+        const thumb = document.createElement('div');
+        thumb.onclick = () => {
+          activeIndex = index;
+          updateShowcasePositions();
+        };
+        thumb.className = `cursor-pointer group rounded-2xl p-3 transition-all border ${
+          isCurrent 
+            ? 'bg-white border-rose-400 shadow-md scale-[1.02]' 
+            : 'bg-white/70 border-slate-200/80 hover:bg-white'
+        }`;
+        thumb.innerHTML = `
+          <div class="relative h-28 rounded-xl overflow-hidden mb-2.5 bg-slate-100">
+            <img src="${item.image}" onerror="this.onerror=null;this.src='${item.fallback}';" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <span class="absolute top-2 right-2 w-6 h-6 rounded-full bg-white/90 text-rose-500 flex items-center justify-center shadow-2xs">
+              <span class="iconify text-xs" data-icon="lucide:heart"></span>
+            </span>
+          </div>
+          <div class="flex items-center justify-between gap-1 text-slate-900">
+            <p class="text-xs font-bold truncate">${item.badge}</p>
+            <span class="text-xs font-extrabold ${item.accent === 'rose' ? 'text-rose-600' : 'text-blue-600'} shrink-0">${item.metric}</span>
+          </div>
+          <div class="flex items-center justify-between mt-1">
+            <p class="text-[10px] text-slate-500 truncate">${item.period}</p>
+            <div class="flex items-center gap-1">
+              <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+              <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+              <span class="w-2 h-2 rounded-full bg-slate-300"></span>
+            </div>
+          </div>
+        `;
+        bottomStrip.appendChild(thumb);
+      });
+
+      updateActiveCaption();
+    }
+
+    function updateShowcasePositions() {
+      const cards = document.querySelectorAll('#fanStage .fan-card');
+      const total = showcaseItems.length;
+      cards.forEach((card, index) => {
+        const diff = getRelativePos(index, activeIndex, total);
+        card.setAttribute('data-pos', diff);
+        card.className = 'fan-card overflow-hidden bg-slate-900 border-2 ' + 
+          (diff === 0 ? 'border-rose-400' : 'border-white/40');
+      });
+      renderBottomStripOnly();
+      updateActiveCaption();
+    }
+
+    function renderBottomStripOnly() {
+      const bottomStrip = document.getElementById('bottomStrip');
+      if (!bottomStrip) return;
+      Array.from(bottomStrip.children).forEach((thumb, index) => {
+        const isCurrent = index === activeIndex;
+        thumb.className = `cursor-pointer group rounded-2xl p-3 transition-all border ${
+          isCurrent 
+            ? 'bg-white border-rose-400 shadow-md scale-[1.02]' 
+            : 'bg-white/70 border-slate-200/80 hover:bg-white'
+        }`;
+      });
+    }
+
+    function updateActiveCaption() {
+      const item = showcaseItems[activeIndex];
+      const badgeEl = document.getElementById('captionBadge');
+      if (!badgeEl || !item) return;
+
+      badgeEl.textContent = `${item.badge} • ${item.period}`;
+      badgeEl.className = `inline-block text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full text-white shadow-sm ${
+        item.accent === 'rose' ? 'bg-rose-500' : 'bg-blue-600'
+      }`;
+      document.getElementById('captionTitle').textContent = item.title;
+      document.getElementById('captionDesc').textContent = item.desc;
+    }
+
+    function rotateCarousel(step) {
+      const total = showcaseItems.length;
+      activeIndex = (activeIndex + step + total) % total;
+      updateShowcasePositions();
+    }
+
+    function replayFanAnimation() {
+      const fanStage = document.getElementById('fanStage');
+      if (!fanStage) return;
+      fanStage.classList.add('stacked');
+      setTimeout(() => {
+        fanStage.classList.remove('stacked');
+      }, 650);
+    }
+
+    function pauseAutoRotate() {
+      if (autoRotateTimer) clearInterval(autoRotateTimer);
+    }
+
+    function resumeAutoRotate() {
+      pauseAutoRotate();
+      autoRotateTimer = setInterval(() => rotateCarousel(1), 4200);
+    }
+
+    // =========================================================================
+    // TOP 10 KONTEN DATA (Sumber Utama Tabel & Thumbnail Reels)
+    // =========================================================================
+    const top10Data = [
+      { rank: 1, title: "anak perempuan sering meledak-ledak", type: "Reels", date: "14 Jun 2025", views: 751870, engagement: 93420, er: 12.4, img: IMAGE_CONFIG.reelsThumbnails.reel1, color: "from-rose-500/80" },
+      { rank: 2, title: "kenapa anak gapunya jiwa fight?", type: "Reels", date: "18 May 2025", views: 902613, engagement: 75336, er: 8.3, img: IMAGE_CONFIG.reelsThumbnails.reel2, color: "from-blue-600/80" },
+      { rank: 3, title: "anak perempuan suka ngambek", type: "Reels", date: "27 Jun 2025", views: 1178950, engagement: 75084, er: 6.4, img: IMAGE_CONFIG.reelsThumbnails.reel3, color: "from-amber-500/80" },
+      { rank: 4, title: "pikiran berantakan, kok malah beberes?", type: "Reels", date: "16 May 2025", views: 1111271, engagement: 67442, er: 6.1, img: IMAGE_CONFIG.reelsThumbnails.reel4, color: "from-indigo-600/80" },
+      { rank: 5, title: "kenapa anak cowo ga deket sama ayah?", type: "Reels", date: "02 Jan 2025", views: 1243461, engagement: 67406, er: 5.4, img: IMAGE_CONFIG.reelsThumbnails.reel5, color: "from-rose-600/80" },
+      { rank: 6, title: "kenapa makin tua makin cepat marah?", type: "Reels", date: "20 Dec 2024", views: 2122480, engagement: 63586, er: 3.0, img: IMAGE_CONFIG.reelsThumbnails.reel6, color: "from-blue-500/80" },
+      { rank: 7, title: "istri diam terus, suami harus apa?", type: "Reels", date: "15 Jun 2025", views: 548450, engagement: 45555, er: 8.3, img: IMAGE_CONFIG.reelsThumbnails.reel7, color: "from-pink-600/80" },
+      { rank: 8, title: "semakin ibu tua semakin minta diperhatiin", type: "Reels", date: "13 Jun 2025", views: 584030, engagement: 33969, er: 5.8, img: IMAGE_CONFIG.reelsThumbnails.reel8, color: "from-sky-600/80" },
+      { rank: 9, title: "bagus anak di pesantrean atau tidak?", type: "Reels", date: "20 Jan 2025", views: 637708, engagement: 31796, er: 5.0, img: IMAGE_CONFIG.reelsThumbnails.reel9, color: "from-purple-600/80" },
+      { rank: 10, title: "pekerjaan rumah melelahkan", type: "Reels", date: "30 Jun 2025", views: 625000, engagement: 26286, er: 4.2, img: IMAGE_CONFIG.reelsThumbnails.reel10, color: "from-rose-600/80" }
+    ];
+
+    function formatIDNumber(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    function renderTop10Table(dataList) {
+      const tbody = document.getElementById('top10TableBody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+      const maxEng = 93420;
+
+      dataList.forEach((row) => {
+        const pct = Math.round((row.engagement / maxEng) * 100);
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-rose-50/40 transition-colors';
+        tr.innerHTML = `
+          <td class="py-3.5 px-2 text-center font-bold text-slate-900">${row.rank}</td>
+          <td class="py-3.5 px-3 font-semibold text-slate-900">${row.title}</td>
+          <td class="py-3.5 px-2"><span class="px-2.5 py-0.5 rounded-full text-[11px] font-medium bg-rose-50 text-rose-600">${row.type}</span></td>
+          <td class="py-3.5 px-3 text-slate-500">${row.date}</td>
+          <td class="py-3.5 px-3 text-right font-medium text-slate-700">${formatIDNumber(row.views)}</td>
+          <td class="py-3.5 px-4">
+            <div class="relative w-full h-6 bg-slate-100 rounded-lg overflow-hidden flex items-center px-2.5">
+              <div style="width: ${pct}%" class="absolute inset-y-0 left-0 bg-gradient-to-r from-blue-200 via-blue-300 to-rose-200 transition-all duration-500"></div>
+              <span class="relative z-10 ml-auto font-bold text-slate-900 text-xs">${formatIDNumber(row.engagement)}</span>
+            </div>
+          </td>
+          <td class="py-3.5 px-2 text-right font-bold ${row.er >= 8 ? 'text-rose-600' : 'text-blue-600'}">${row.er.toString().replace('.', ',')}%</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function sortTop10(criteria) {
+      const copy = [...top10Data];
+      if (criteria === 'views') copy.sort((a, b) => b.views - a.views);
+      else if (criteria === 'er') copy.sort((a, b) => b.er - a.er);
+      else copy.sort((a, b) => b.engagement - a.engagement);
+
+      ['engagement', 'views', 'er'].forEach(key => {
+        const btn = document.getElementById('sort-' + key);
+        if (btn) {
+          if (key === criteria) {
+            btn.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white transition-all';
+          } else {
+            btn.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-rose-50 hover:text-rose-600 transition-all';
+          }
+        }
+      });
+
+      renderTop10Table(copy);
+      renderViralReelsGrid(copy);
+    }
+
+    // =========================================================================
+    // INSTAGRAM INSIGHTS PERIOD SWITCHER
+    // =========================================================================
+    const insightPeriods = {
+      'jun-jul': {
+        label: 'Period: Jun 29 – Jul 29 (0.0% from ads)',
+        views: '3,088,790',
+        reached: 'Accounts Reached: 1,754,695 (+69.0%)',
+        followers: '10.1%',
+        nonFollowers: '89.9%',
+        reelsPct: '91.0%'
+      },
+      'jul-aug': {
+        label: 'Period: Jul 29 – Aug 26 (0.0% from ads)',
+        views: '2,023,658',
+        reached: 'Accounts Reached: 1,051,401',
+        followers: '13.3%',
+        nonFollowers: '86.7%',
+        reelsPct: '60.9%'
+      },
+      'may-jun': {
+        label: 'Period: May 29 – Jun 29 (0.0% from ads)',
+        views: '2,850,000+',
+        reached: 'Profile Activity: 22,347 (+33.2%)',
+        followers: '11.5%',
+        nonFollowers: '88.5%',
+        reelsPct: '97.9%'
+      }
+    };
+
+    function switchInsightPeriod(periodKey) {
+      const d = insightPeriods[periodKey];
+      if (!d) return;
+
+      document.getElementById('insightPeriodLabel').textContent = d.label;
+      document.getElementById('insightTotalViews').innerHTML = `${d.views} <span class="text-xs font-normal text-slate-500">Views</span>`;
+      document.getElementById('insightReached').textContent = d.reached;
+      document.getElementById('insightFollowerText').textContent = d.followers;
+      document.getElementById('insightNonFollowerText').textContent = d.nonFollowers;
+      document.getElementById('insightNonFollowerPct').textContent = d.nonFollowers;
+      document.getElementById('insightReelsPct').textContent = d.reelsPct;
+      document.getElementById('insightReelsBar').style.width = d.reelsPct;
+
+      ['jun-jul', 'jul-aug', 'may-jun'].forEach(k => {
+        const tab = document.getElementById('tab-' + k);
+        if (tab) {
+          tab.className = (k === periodKey)
+            ? 'px-3 py-1 rounded-full bg-slate-900 text-white transition-all'
+            : 'px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 transition-all';
+        }
+      });
+    }
+
+    // =========================================================================
+    // TOP 10 VIRAL REELS THUMBNAIL ARCHIVE (Terhubung langsung ke top10Data)
+    // =========================================================================
+    function renderViralReelsGrid(dataList = top10Data) {
+      const container = document.getElementById('reelsGridContainer');
+      if (!container) return;
+      container.innerHTML = '';
+
+      dataList.forEach((reel) => {
+        const card = document.createElement('div');
+        card.className = 'tilt-card group relative aspect-[4/5] rounded-3xl overflow-hidden bg-slate-900 border border-rose-100 shadow-sm flex flex-col justify-between p-4';
+        card.innerHTML = `
+          <img src="${reel.img}" onerror="this.style.display='none'" alt="${reel.title}" class="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-br ${reel.color} via-slate-900/75 to-slate-950 z-0"></div>
+          <div class="relative z-10 flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-md text-[10px] font-semibold text-white">
+              #${reel.rank} • ER ${reel.er.toString().replace('.', ',')}%
+            </span>
+            <span class="text-[10px] text-slate-200 font-medium">${reel.date}</span>
+          </div>
+          <div class="relative z-10 my-auto text-center px-1">
+            <p class="font-display text-xs sm:text-sm font-extrabold uppercase tracking-tight text-white drop-shadow-sm leading-snug group-hover:text-amber-300 transition-colors">
+              "${reel.title}"
+            </p>
+            <p class="text-[10px] text-rose-200 mt-1.5 font-medium">${formatIDNumber(reel.engagement)} Total Engagement</p>
+          </div>
+          <div class="relative z-10 flex items-center justify-between pt-2 border-t border-white/15 text-white">
+            <span class="flex items-center gap-1 text-[11px] font-bold">
+              <span class="iconify text-rose-400" data-icon="lucide:eye"></span>
+              ${formatIDNumber(reel.views)}
+            </span>
+            <span class="text-[10px] text-rose-200 font-medium">${reel.type}</span>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function toggleReelsArchive() {
+      const grid = document.getElementById('reelsGridContainer');
+      const btn = document.getElementById('toggleReelsBtn');
+      if (!grid || !btn) return;
+      if (grid.classList.contains('hidden')) {
+        grid.classList.remove('hidden');
+        grid.classList.add('grid');
+        btn.innerHTML = `<span>Hide Top 10 Viral Thumbnails</span><span class="iconify" data-icon="lucide:chevron-up"></span>`;
+      } else {
+        grid.classList.add('hidden');
+        grid.classList.remove('grid');
+        btn.innerHTML = `<span>Show Top 10 Viral Thumbnails</span><span class="iconify" data-icon="lucide:chevron-down"></span>`;
+      }
+    }
+
+    // COPY EMAIL HELPER
+    function copyEmail(btn) {
+      const email = btn.getAttribute('data-email') || 'career.syiifu@gmail.com';
+      navigator.clipboard.writeText(email).then(() => {
+        const span = btn.querySelector('.btn-text');
+        const old = span.innerText;
+        span.innerText = 'Email Copied!';
+        setTimeout(() => { span.innerText = old; }, 2000);
+      });
+    }
+
+    // INITIALIZE ON LOAD
+    window.addEventListener('DOMContentLoaded', () => {
+      renderFanShowcase();
+      renderTop10Table(top10Data);
+      renderViralReelsGrid(top10Data);
+
+      const stage = document.getElementById('fanStage');
+      if (stage) {
+        setTimeout(() => {
+          stage.classList.remove('stacked');
+        }, 450);
+      }
+
+      resumeAutoRotate();
+
+      const chapters = document.querySelectorAll('.chapter-3d');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+          }
+        });
+      }, { threshold: 0.12 });
+
+      chapters.forEach(ch => observer.observe(ch));
+    });
+  </script>
+</body>
+</html>
