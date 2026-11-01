@@ -64,7 +64,7 @@
       filter: blur(0px);
     }
 
-    /* Zevana-Style 5-Card Fan-Out Animation */
+    /* Zevana-Style 4-Card Fan-Out Animation */
     .fan-stage {
       perspective: 1200px;
       position: relative;
@@ -76,8 +76,8 @@
 
     .fan-card {
       position: absolute;
-      width: 220px;
-      height: 330px;
+      width: 230px;
+      height: 340px;
       border-radius: 24px;
       transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
       cursor: pointer;
@@ -88,7 +88,7 @@
 
     @media (max-width: 768px) {
       .fan-stage { height: 350px; }
-      .fan-card { width: 165px; height: 255px; }
+      .fan-card { width: 170px; height: 260px; }
     }
 
     /* Stacked State (Before Fan-Out) */
@@ -102,14 +102,9 @@
       z-index: 30;
     }
 
-    /* Fanned Out Positions (-2, -1, 0, 1, 2) */
-    .fan-card[data-pos="-2"] {
-      transform: translateX(-380px) translateY(28px) scale(0.82) rotateY(14deg) rotateZ(-6deg);
-      z-index: 10;
-      opacity: 0.85;
-    }
+    /* Fanned Out Positions for 4 Cards (-1, 0, 1, 2) */
     .fan-card[data-pos="-1"] {
-      transform: translateX(-195px) translateY(10px) scale(0.91) rotateY(7deg) rotateZ(-3deg);
+      transform: translateX(-215px) translateY(12px) scale(0.91) rotateY(8deg) rotateZ(-4deg);
       z-index: 20;
       opacity: 0.95;
     }
@@ -120,28 +115,26 @@
       box-shadow: 0 28px 60px -12px rgba(244, 63, 94, 0.32), 0 0 30px rgba(59, 130, 246, 0.2);
     }
     .fan-card[data-pos="1"] {
-      transform: translateX(195px) translateY(10px) scale(0.91) rotateY(-7deg) rotateZ(3deg);
+      transform: translateX(215px) translateY(12px) scale(0.91) rotateY(-8deg) rotateZ(4deg);
       z-index: 20;
       opacity: 0.95;
     }
     .fan-card[data-pos="2"] {
-      transform: translateX(380px) translateY(28px) scale(0.82) rotateY(-14deg) rotateZ(6deg);
+      transform: translateX(400px) translateY(30px) scale(0.82) rotateY(-14deg) rotateZ(7deg);
       z-index: 10;
       opacity: 0.85;
     }
 
     @media (max-width: 1024px) {
-      .fan-card[data-pos="-2"] { transform: translateX(-240px) translateY(24px) scale(0.76) rotateZ(-6deg); }
-      .fan-card[data-pos="-1"] { transform: translateX(-125px) translateY(10px) scale(0.88) rotateZ(-3deg); }
-      .fan-card[data-pos="1"]  { transform: translateX(125px) translateY(10px) scale(0.88) rotateZ(3deg); }
-      .fan-card[data-pos="2"]  { transform: translateX(240px) translateY(24px) scale(0.76) rotateZ(6deg); }
+      .fan-card[data-pos="-1"] { transform: translateX(-140px) translateY(10px) scale(0.88) rotateZ(-4deg); }
+      .fan-card[data-pos="1"]  { transform: translateX(140px) translateY(10px) scale(0.88) rotateZ(4deg); }
+      .fan-card[data-pos="2"]  { transform: translateX(255px) translateY(24px) scale(0.76) rotateZ(7deg); }
     }
 
     @media (max-width: 640px) {
-      .fan-card[data-pos="-2"] { transform: translateX(-130px) scale(0.7) rotateZ(-8deg); opacity: 0.5; }
-      .fan-card[data-pos="-1"] { transform: translateX(-70px) scale(0.84) rotateZ(-4deg); }
-      .fan-card[data-pos="1"]  { transform: translateX(70px) scale(0.84) rotateZ(4deg); }
-      .fan-card[data-pos="2"]  { transform: translateX(130px) scale(0.7) rotateZ(8deg); opacity: 0.5; }
+      .fan-card[data-pos="-1"] { transform: translateX(-75px) scale(0.84) rotateZ(-4deg); }
+      .fan-card[data-pos="1"]  { transform: translateX(75px) scale(0.84) rotateZ(4deg); }
+      .fan-card[data-pos="2"]  { transform: translateX(135px) scale(0.7) rotateZ(8deg); opacity: 0.5; }
     }
 
     /* 3D Card Tilt Hover */
@@ -199,7 +192,7 @@
   <main class="chapter-3d-wrapper pt-24">
 
     <!-- =====================================================================
-         CHAPTER 1: ZEVANA-STYLE HERO + 5-CARD FAN-OUT & CAROUSEL SHOWCASE
+         CHAPTER 1: ZEVANA-STYLE HERO + 4-CARD FAN-OUT & CAROUSEL SHOWCASE
     ====================================================================== -->
     <section id="showcase" class="chapter-3d is-visible max-w-[1280px] mx-auto px-4 sm:px-6 pt-4 pb-16">
       
@@ -241,7 +234,7 @@
           </div>
         </div>
 
-        <!-- 5-CARD FAN-OUT INTERACTIVE STAGE (Uses Your Latest Photos from IMAGE_CONFIG) -->
+        <!-- 4-CARD FAN-OUT INTERACTIVE STAGE -->
         <div id="fanStage" class="fan-stage stacked my-4"
              onmouseenter="pauseAutoRotate()"
              onmouseleave="resumeAutoRotate()">
@@ -271,8 +264,8 @@
           </div>
         </div>
 
-        <!-- BOTTOM SYNCHRONIZED THUMBNAIL STRIP -->
-        <div id="bottomStrip" class="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 pt-6 border-t border-slate-200/80">
+        <!-- BOTTOM SYNCHRONIZED THUMBNAIL STRIP (4 Columns for 4 Main Cards) -->
+        <div id="bottomStrip" class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 pt-6 border-t border-slate-200/80">
         </div>
 
       </div>
@@ -569,16 +562,16 @@
           </table>
         </div>
 
-        <!-- Collapsible 12 Reels Thumbnail Drawer (Connected to IMAGE_CONFIG.reelsThumbnails) -->
+        <!-- Collapsible Top 10 Reels Thumbnail Drawer (Synced with top10Data) -->
         <div class="mt-8 pt-6 border-t border-slate-100">
           <div class="flex items-center justify-between">
-            <p class="text-xs font-semibold text-slate-500">Visual Hook & Content Thumbnail Archive (12 Viral Reels)</p>
+            <p class="text-xs font-semibold text-slate-500">Visual Hook & Content Thumbnail Archive (Top 10 Viral Reels)</p>
             <button onclick="toggleReelsArchive()" id="toggleReelsBtn" class="inline-flex items-center gap-1.5 text-xs font-bold text-rose-600 hover:text-blue-600 transition-colors">
-              <span>Show 12 Viral Thumbnails</span>
+              <span>Show Top 10 Viral Thumbnails</span>
               <span class="iconify" data-icon="lucide:chevron-down"></span>
             </button>
           </div>
-          <div id="reelsGridContainer" class="hidden grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-6">
+          <div id="reelsGridContainer" class="hidden grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mt-6">
           </div>
         </div>
       </div>
@@ -586,7 +579,7 @@
     </section>
 
     <!-- =====================================================================
-         CHAPTER 3 (FORMERLY CHAPTER 4): OFFICIAL CV — ABOUT, EXPERIENCE & SKILLS
+         CHAPTER 3: OFFICIAL CV — ABOUT, EXPERIENCE & SKILLS
     ====================================================================== -->
     <section id="about" class="chapter-3d max-w-[1280px] mx-auto px-6 py-20 border-t border-rose-100">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
@@ -780,7 +773,7 @@
             <span class="iconify text-base text-rose-500" data-icon="lucide:phone"></span>
             0858-3181-4717
           </a>
-          <a href="https://www.linkedin.com/in/syiifu" target="_blank" rel="noopener noreferrer" class="bg-white border border-blue-200 hover:border-blue-400 text-slate-800 px-6 py-3.5 rounded-full text-xs font-semibold transition-all flex items-center gap-2 shadow-2xs">
+          <a href="https://www.linkedin.com/in/syiifu/" target="_blank" rel="noopener noreferrer" class="bg-white border border-blue-200 hover:border-blue-400 text-slate-800 px-6 py-3.5 rounded-full text-xs font-semibold transition-all flex items-center gap-2 shadow-2xs">
             <span class="iconify text-base text-blue-600" data-icon="lucide:linkedin"></span>
             LinkedIn Profile
           </a>
@@ -790,6 +783,7 @@
       <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
         <p>© 2026 Syifa Aulia Rahma. Built with Warm Minimalist Pink & Blue Design DNA.</p>
         <div class="flex items-center gap-6 font-medium">
+          <a href="https://www.linkedin.com/in/syiifu/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600">LinkedIn</a>
           <a href="#showcase" class="hover:text-rose-500">Top Showcase</a>
           <a href="#analytics" class="hover:text-blue-600">Analytics</a>
           <a href="#experience" class="hover:text-rose-500">CV & Experience</a>
@@ -805,28 +799,27 @@
     /**
      * =========================================================================
      * 🛠️ PUSAT PENGGANTIAN GAMBAR 1-DETIK (IMAGE_CONFIG)
-     * Cukup ganti link URL atau nama file foto terbaru kamu di dalam tanda kutip
-     * di bawah ini tanpa perlu membongkar kode HTML!
+     * Cukup ganti nama file foto di dalam tanda kutip di bawah ini!
      * =========================================================================
      */
     const IMAGE_CONFIG = {
-      // 1. LIMA KARTU UTAMA DI ATAS (Hero 5-Card Fan-Out & Strip Bawah) -> Ganti dengan 5 Foto Terbaru Kamu
+      // 1. EMPAT KARTU UTAMA DI ATAS (Hero 4-Card Fan-Out & Strip Bawah)
       heroCards: {
-        card1_EmployerBranding: "3impres.png", // Atau tempel link gambar (misal: "https://.../foto1.jpg")
+        card1_EmployerBranding: "3impres.png",
         card2_BankBRI:          "1bri.jpg",
         card3_HRBP:             "6ji.JPG",
-        card4_Assessor:         "4nf.jpg",
+        card4_Assessor:         "4nf.jpg"
       },
 
-      // Fallback otomatis jika file lokal "foto-syifa-1.jpg" belum di-upload ke folder project
+      // Fallback otomatis jika file lokal belum ditemukan
       heroFallbacks: [
-        "3impres.png",
-        "1bri.jpg",
-        "6ji.JPG",
-        "4nf.jpg",
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=900&q=80",
+        "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=900&q=80"
       ],
 
-      // 2. DUA BELAS THUMBNAIL REELS -> Ganti dengan link/nama file screenshot Reels kamu
+      // 2. SEPULUH THUMBNAIL REELS (Sesuai urutan Top 10 Data Konten)
       reelsThumbnails: {
         reel1:  "reel-thumb-1.jpg",
         reel2:  "reel-thumb-2.jpg",
@@ -837,14 +830,12 @@
         reel7:  "reel-thumb-7.jpg",
         reel8:  "reel-thumb-8.jpg",
         reel9:  "reel-thumb-9.jpg",
-        reel10: "reel-thumb-10.jpg",
-        reel11: "reel-thumb-11.jpg",
-        reel12: "reel-thumb-12.jpg"
+        reel10: "reel-thumb-10.jpg"
       }
     };
 
     // =========================================================================
-    // DATA 5 KARTU UTAMA (Terhubung otomatis ke IMAGE_CONFIG.heroCards di atas)
+    // DATA 4 KARTU UTAMA (id: 4 Psychology & BNSP telah dihapus)
     // =========================================================================
     const showcaseItems = [
       {
@@ -855,8 +846,8 @@
         desc: "203 Reels Analyzed • 853,170 Engagement • 5.6% ER (0% Ads)",
         period: "Jan – Dec 2025",
         accent: "rose",
-        image: 3impres.jpg.heroCards.card1_EmployerBranding,
-        fallback: 3impres.jpg.heroFallbacks[0],
+        image: IMAGE_CONFIG.heroCards.card1_EmployerBranding,
+        fallback: IMAGE_CONFIG.heroFallbacks[0],
         target: "#analytics"
       },
       {
@@ -867,8 +858,8 @@
         desc: "Full-lifecycle recruitment, CV screening & competency interviews at Bank BRI",
         period: "Aug – Sep 2025",
         accent: "blue",
-        image: 1bri.jpg.heroCards.card2_BankBRI,
-        fallback: 1bri.jpg.heroFallbacks[1],
+        image: IMAGE_CONFIG.heroCards.card2_BankBRI,
+        fallback: IMAGE_CONFIG.heroFallbacks[1],
         target: "#experience"
       },
       {
@@ -879,8 +870,8 @@
         desc: "Behavioral simulations, FGD verbatim coding & HC transformation",
         period: "Feb – Sep 2025",
         accent: "rose",
-        image: 6ji.jpg.heroCards.card3_HRBP,
-        fallback: 6ji.jpg.heroFallbacks[2],
+        image: IMAGE_CONFIG.heroCards.card3_HRBP,
+        fallback: IMAGE_CONFIG.heroFallbacks[2],
         target: "#experience"
       },
       {
@@ -891,26 +882,33 @@
         desc: "Standardized proctoring & complete evaluation reports in 3-day turnaround",
         period: "July 2026",
         accent: "blue",
-        image: 4ng.jpg.heroCards.card4_Assessor,
-        fallback: 4nf.jpg.heroFallbacks[3],
+        image: IMAGE_CONFIG.heroCards.card4_Assessor,
+        fallback: IMAGE_CONFIG.heroFallbacks[3],
         target: "#experience"
-      },
+      }
     ];
 
     let activeIndex = 0;
     let autoRotateTimer = null;
 
+    function getRelativePos(index, activeIdx, total) {
+      let diff = (index - activeIdx + total) % total;
+      if (diff > Math.floor(total / 2)) diff -= total;
+      return diff;
+    }
+
     function renderFanShowcase() {
       const fanStage = document.getElementById('fanStage');
       const bottomStrip = document.getElementById('bottomStrip');
+      if (!fanStage || !bottomStrip) return;
+
       fanStage.innerHTML = '';
       bottomStrip.innerHTML = '';
 
       const total = showcaseItems.length;
 
       showcaseItems.forEach((item, index) => {
-        let diff = (index - activeIndex + total) % total;
-        if (diff > Math.floor(total / 2)) diff -= total;
+        const diff = getRelativePos(index, activeIndex, total);
 
         const card = document.createElement('div');
         card.className = 'fan-card overflow-hidden bg-slate-900 border-2 ' + 
@@ -944,7 +942,6 @@
         `;
         fanStage.appendChild(card);
 
-        // Synchronized Bottom Strip Card
         const isCurrent = index === activeIndex;
         const thumb = document.createElement('div');
         thumb.onclick = () => {
@@ -957,7 +954,7 @@
             : 'bg-white/70 border-slate-200/80 hover:bg-white'
         }`;
         thumb.innerHTML = `
-          <div class="relative h-24 rounded-xl overflow-hidden mb-2.5 bg-slate-100">
+          <div class="relative h-28 rounded-xl overflow-hidden mb-2.5 bg-slate-100">
             <img src="${item.image}" onerror="this.onerror=null;this.src='${item.fallback}';" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <span class="absolute top-2 right-2 w-6 h-6 rounded-full bg-white/90 text-rose-500 flex items-center justify-center shadow-2xs">
               <span class="iconify text-xs" data-icon="lucide:heart"></span>
@@ -986,8 +983,7 @@
       const cards = document.querySelectorAll('#fanStage .fan-card');
       const total = showcaseItems.length;
       cards.forEach((card, index) => {
-        let diff = (index - activeIndex + total) % total;
-        if (diff > Math.floor(total / 2)) diff -= total;
+        const diff = getRelativePos(index, activeIndex, total);
         card.setAttribute('data-pos', diff);
         card.className = 'fan-card overflow-hidden bg-slate-900 border-2 ' + 
           (diff === 0 ? 'border-rose-400' : 'border-white/40');
@@ -998,6 +994,7 @@
 
     function renderBottomStripOnly() {
       const bottomStrip = document.getElementById('bottomStrip');
+      if (!bottomStrip) return;
       Array.from(bottomStrip.children).forEach((thumb, index) => {
         const isCurrent = index === activeIndex;
         thumb.className = `cursor-pointer group rounded-2xl p-3 transition-all border ${
@@ -1011,6 +1008,8 @@
     function updateActiveCaption() {
       const item = showcaseItems[activeIndex];
       const badgeEl = document.getElementById('captionBadge');
+      if (!badgeEl || !item) return;
+
       badgeEl.textContent = `${item.badge} • ${item.period}`;
       badgeEl.className = `inline-block text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full text-white shadow-sm ${
         item.accent === 'rose' ? 'bg-rose-500' : 'bg-blue-600'
@@ -1027,6 +1026,7 @@
 
     function replayFanAnimation() {
       const fanStage = document.getElementById('fanStage');
+      if (!fanStage) return;
       fanStage.classList.add('stacked');
       setTimeout(() => {
         fanStage.classList.remove('stacked');
@@ -1043,19 +1043,19 @@
     }
 
     // =========================================================================
-    // TOP 10 KONTEN DATA
+    // TOP 10 KONTEN DATA (Sumber Utama Tabel & Thumbnail Reels)
     // =========================================================================
     const top10Data = [
-      { rank: 1, title: "anak perempuan sering meledak-ledak", type: "Reels", date: "14 Jun 2025", views: 751870, engagement: 93420, er: 12.4 },
-      { rank: 2, title: "kenapa anak gapunya jiwa fight?", type: "Reels", date: "18 May 2025", views: 902613, engagement: 75336, er: 8.3 },
-      { rank: 3, title: "anak perempuan suka ngambek", type: "Reels", date: "27 Jun 2025", views: 1178950, engagement: 75084, er: 6.4 },
-      { rank: 4, title: "pikiran berantakan, kok malah beberes?", type: "Reels", date: "16 May 2025", views: 1111271, engagement: 67442, er: 6.1 },
-      { rank: 5, title: "kenapa anak cowo ga deket sama ayah?", type: "Reels", date: "02 Jan 2025", views: 1243461, engagement: 67406, er: 5.4 },
-      { rank: 6, title: "kenapa makin tua makin cepat marah?", type: "Reels", date: "20 Dec 2024", views: 2122480, engagement: 63586, er: 3.0 },
-      { rank: 7, title: "istri diam terus, suami harus apa?", type: "Reels", date: "15 Jun 2025", views: 548450, engagement: 45555, er: 8.3 },
-      { rank: 8, title: "semakin ibu tua semakin minta diperhatiin", type: "Reels", date: "13 Jun 2025", views: 584030, engagement: 33969, er: 5.8 },
-      { rank: 9, title: "bagus anak di pesantrean atau tidak?", type: "Reels", date: "20 Jan 2025", views: 637708, engagement: 31796, er: 5.0 },
-      { rank: 10, title: "pekerjaan rumah melelahkan", type: "Reels", date: "30 Jun 2025", views: 625000, engagement: 26286, er: 4.2 }
+      { rank: 1, title: "anak perempuan sering meledak-ledak", type: "Reels", date: "14 Jun 2025", views: 751870, engagement: 93420, er: 12.4, img: IMAGE_CONFIG.reelsThumbnails.reel1, color: "from-rose-500/80" },
+      { rank: 2, title: "kenapa anak gapunya jiwa fight?", type: "Reels", date: "18 May 2025", views: 902613, engagement: 75336, er: 8.3, img: IMAGE_CONFIG.reelsThumbnails.reel2, color: "from-blue-600/80" },
+      { rank: 3, title: "anak perempuan suka ngambek", type: "Reels", date: "27 Jun 2025", views: 1178950, engagement: 75084, er: 6.4, img: IMAGE_CONFIG.reelsThumbnails.reel3, color: "from-amber-500/80" },
+      { rank: 4, title: "pikiran berantakan, kok malah beberes?", type: "Reels", date: "16 May 2025", views: 1111271, engagement: 67442, er: 6.1, img: IMAGE_CONFIG.reelsThumbnails.reel4, color: "from-indigo-600/80" },
+      { rank: 5, title: "kenapa anak cowo ga deket sama ayah?", type: "Reels", date: "02 Jan 2025", views: 1243461, engagement: 67406, er: 5.4, img: IMAGE_CONFIG.reelsThumbnails.reel5, color: "from-rose-600/80" },
+      { rank: 6, title: "kenapa makin tua makin cepat marah?", type: "Reels", date: "20 Dec 2024", views: 2122480, engagement: 63586, er: 3.0, img: IMAGE_CONFIG.reelsThumbnails.reel6, color: "from-blue-500/80" },
+      { rank: 7, title: "istri diam terus, suami harus apa?", type: "Reels", date: "15 Jun 2025", views: 548450, engagement: 45555, er: 8.3, img: IMAGE_CONFIG.reelsThumbnails.reel7, color: "from-pink-600/80" },
+      { rank: 8, title: "semakin ibu tua semakin minta diperhatiin", type: "Reels", date: "13 Jun 2025", views: 584030, engagement: 33969, er: 5.8, img: IMAGE_CONFIG.reelsThumbnails.reel8, color: "from-sky-600/80" },
+      { rank: 9, title: "bagus anak di pesantrean atau tidak?", type: "Reels", date: "20 Jan 2025", views: 637708, engagement: 31796, er: 5.0, img: IMAGE_CONFIG.reelsThumbnails.reel9, color: "from-purple-600/80" },
+      { rank: 10, title: "pekerjaan rumah melelahkan", type: "Reels", date: "30 Jun 2025", views: 625000, engagement: 26286, er: 4.2, img: IMAGE_CONFIG.reelsThumbnails.reel10, color: "from-rose-600/80" }
     ];
 
     function formatIDNumber(num) {
@@ -1064,6 +1064,7 @@
 
     function renderTop10Table(dataList) {
       const tbody = document.getElementById('top10TableBody');
+      if (!tbody) return;
       tbody.innerHTML = '';
       const maxEng = 93420;
 
@@ -1097,14 +1098,17 @@
 
       ['engagement', 'views', 'er'].forEach(key => {
         const btn = document.getElementById('sort-' + key);
-        if (key === criteria) {
-          btn.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white transition-all';
-        } else {
-          btn.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-rose-50 hover:text-rose-600 transition-all';
+        if (btn) {
+          if (key === criteria) {
+            btn.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-900 text-white transition-all';
+          } else {
+            btn.className = 'px-3.5 py-1.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-700 hover:bg-rose-50 hover:text-rose-600 transition-all';
+          }
         }
       });
 
       renderTop10Table(copy);
+      renderViralReelsGrid(copy);
     }
 
     // =========================================================================
@@ -1139,6 +1143,8 @@
 
     function switchInsightPeriod(periodKey) {
       const d = insightPeriods[periodKey];
+      if (!d) return;
+
       document.getElementById('insightPeriodLabel').textContent = d.label;
       document.getElementById('insightTotalViews').innerHTML = `${d.views} <span class="text-xs font-normal text-slate-500">Views</span>`;
       document.getElementById('insightReached').textContent = d.reached;
@@ -1150,57 +1156,46 @@
 
       ['jun-jul', 'jul-aug', 'may-jun'].forEach(k => {
         const tab = document.getElementById('tab-' + k);
-        tab.className = (k === periodKey)
-          ? 'px-3 py-1 rounded-full bg-slate-900 text-white transition-all'
-          : 'px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 transition-all';
+        if (tab) {
+          tab.className = (k === periodKey)
+            ? 'px-3 py-1 rounded-full bg-slate-900 text-white transition-all'
+            : 'px-3 py-1 rounded-full text-slate-600 hover:text-slate-900 transition-all';
+        }
       });
     }
 
     // =========================================================================
-    // 12 VIRAL REELS THUMBNAIL SLOTS (Connected to IMAGE_CONFIG.reelsThumbnails)
+    // TOP 10 VIRAL REELS THUMBNAIL ARCHIVE (Terhubung langsung ke top10Data)
     // =========================================================================
-    const viralReels = [
-      { hook: "ANAK PEREMPUAN SUKA NGAMBEK?", views: "1,3M", tag: "Parenting Psychology", img: IMAGE_CONFIG.reelsThumbnails.reel1, color: "from-rose-500/80" },
-      { hook: "KENAPA ANAK LAKI PASTI TANGGUH?", views: "1,3M", tag: "Child Development", img: IMAGE_CONFIG.reelsThumbnails.reel2, color: "from-blue-600/80" },
-      { hook: "JAWABAN AYAH: 'Ayah aku cantik gak'", views: "1,2M", tag: "Father-Daughter Bond", img: IMAGE_CONFIG.reelsThumbnails.reel3, color: "from-amber-500/80" },
-      { hook: "KENAPA ANAK COWOK GA DEKET SAMA AYAH?", views: "1,2M", tag: "Family Dynamics", img: IMAGE_CONFIG.reelsThumbnails.reel4, color: "from-indigo-600/80" },
-      { hook: "PIKIRAN BERANTAKAN KOK MALAH BEBERES!?", views: "1,1M", tag: "Emotional Regulation", img: IMAGE_CONFIG.reelsThumbnails.reel5, color: "from-rose-600/80" },
-      { hook: "ALASAN KENAPA ANAK GA PUNYA JIWA FIGHT", views: "939K", tag: "Resilience & Grit", img: IMAGE_CONFIG.reelsThumbnails.reel6, color: "from-blue-500/80" },
-      { hook: "KENAPA ANAK PEREMPUAN SERING MELEDAK-LEDAK", views: "827K", tag: "12.4% Engagement Rate", img: IMAGE_CONFIG.reelsThumbnails.reel7, color: "from-pink-600/80" },
-      { hook: "ALASAN ANAK PEREMPUAN SENSI KE AYAHNYA", views: "820K", tag: "Attachment Theory", img: IMAGE_CONFIG.reelsThumbnails.reel8, color: "from-sky-600/80" },
-      { hook: "ISTRI DIAM TERUS SUAMI HARUS APA?", views: "810K", tag: "Marriage Communication", img: IMAGE_CONFIG.reelsThumbnails.reel9, color: "from-rose-500/80" },
-      { hook: "PEKERJAAN RUMAH MELELAHKAN", views: "710K", tag: "Mental Load & Empathy", img: IMAGE_CONFIG.reelsThumbnails.reel10, color: "from-blue-600/80" },
-      { hook: "SEMAKIN IBU TUA SEMAKIN MINTA DIPERHATIIN", views: "695K", tag: "Aging & Family Care", img: IMAGE_CONFIG.reelsThumbnails.reel11, color: "from-purple-600/80" },
-      { hook: "MENIKAH HARUS KAYA?", views: "426K", tag: "Relationship Readiness", img: IMAGE_CONFIG.reelsThumbnails.reel12, color: "from-rose-600/80" }
-    ];
-
-    function renderViralReelsGrid() {
+    function renderViralReelsGrid(dataList = top10Data) {
       const container = document.getElementById('reelsGridContainer');
+      if (!container) return;
       container.innerHTML = '';
-      viralReels.forEach((reel, idx) => {
+
+      dataList.forEach((reel) => {
         const card = document.createElement('div');
-        card.className = 'tilt-card group relative aspect-[4/5] rounded-3xl overflow-hidden bg-slate-900 border border-rose-100 shadow-sm flex flex-col justify-between p-5';
+        card.className = 'tilt-card group relative aspect-[4/5] rounded-3xl overflow-hidden bg-slate-900 border border-rose-100 shadow-sm flex flex-col justify-between p-4';
         card.innerHTML = `
-          <img src="${reel.img}" onerror="this.style.display='none'" alt="${reel.hook}" class="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-105 transition-transform duration-500">
+          <img src="${reel.img}" onerror="this.style.display='none'" alt="${reel.title}" class="absolute inset-0 w-full h-full object-cover z-0 group-hover:scale-105 transition-transform duration-500">
           <div class="absolute inset-0 bg-gradient-to-br ${reel.color} via-slate-900/75 to-slate-950 z-0"></div>
           <div class="relative z-10 flex items-center justify-between">
             <span class="px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-md text-[10px] font-semibold text-white">
-              ${reel.tag}
+              #${reel.rank} • ER ${reel.er.toString().replace('.', ',')}%
             </span>
-            <span class="iconify text-white/80 text-base" data-icon="lucide:clapperboard"></span>
+            <span class="text-[10px] text-slate-200 font-medium">${reel.date}</span>
           </div>
           <div class="relative z-10 my-auto text-center px-1">
-            <p class="font-display text-sm sm:text-base font-extrabold uppercase tracking-tight text-white drop-shadow-sm leading-snug group-hover:text-amber-300 transition-colors">
-              "${reel.hook}"
+            <p class="font-display text-xs sm:text-sm font-extrabold uppercase tracking-tight text-white drop-shadow-sm leading-snug group-hover:text-amber-300 transition-colors">
+              "${reel.title}"
             </p>
-            <p class="text-[10px] text-rose-200 mt-1.5 font-medium">Employer Branding Content Strategy</p>
+            <p class="text-[10px] text-rose-200 mt-1.5 font-medium">${formatIDNumber(reel.engagement)} Total Engagement</p>
           </div>
           <div class="relative z-10 flex items-center justify-between pt-2 border-t border-white/15 text-white">
-            <span class="flex items-center gap-1.5 text-xs font-bold">
-              <span class="iconify text-rose-400" data-icon="lucide:play"></span>
-              ${reel.views} Views
+            <span class="flex items-center gap-1 text-[11px] font-bold">
+              <span class="iconify text-rose-400" data-icon="lucide:eye"></span>
+              ${formatIDNumber(reel.views)}
             </span>
-            <span class="text-[10px] text-rose-200 font-medium">Reels #${idx + 1}</span>
+            <span class="text-[10px] text-rose-200 font-medium">${reel.type}</span>
           </div>
         `;
         container.appendChild(card);
@@ -1210,14 +1205,15 @@
     function toggleReelsArchive() {
       const grid = document.getElementById('reelsGridContainer');
       const btn = document.getElementById('toggleReelsBtn');
+      if (!grid || !btn) return;
       if (grid.classList.contains('hidden')) {
         grid.classList.remove('hidden');
         grid.classList.add('grid');
-        btn.innerHTML = `<span>Hide 12 Viral Thumbnails</span><span class="iconify" data-icon="lucide:chevron-up"></span>`;
+        btn.innerHTML = `<span>Hide Top 10 Viral Thumbnails</span><span class="iconify" data-icon="lucide:chevron-up"></span>`;
       } else {
         grid.classList.add('hidden');
         grid.classList.remove('grid');
-        btn.innerHTML = `<span>Show 12 Viral Thumbnails</span><span class="iconify" data-icon="lucide:chevron-down"></span>`;
+        btn.innerHTML = `<span>Show Top 10 Viral Thumbnails</span><span class="iconify" data-icon="lucide:chevron-down"></span>`;
       }
     }
 
@@ -1236,11 +1232,14 @@
     window.addEventListener('DOMContentLoaded', () => {
       renderFanShowcase();
       renderTop10Table(top10Data);
-      renderViralReelsGrid();
+      renderViralReelsGrid(top10Data);
 
-      setTimeout(() => {
-        document.getElementById('fanStage').classList.remove('stacked');
-      }, 450);
+      const stage = document.getElementById('fanStage');
+      if (stage) {
+        setTimeout(() => {
+          stage.classList.remove('stacked');
+        }, 450);
+      }
 
       resumeAutoRotate();
 
