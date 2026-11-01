@@ -813,18 +813,17 @@
       // 1. LIMA KARTU UTAMA DI ATAS (Hero 5-Card Fan-Out & Strip Bawah) -> Ganti dengan 5 Foto Terbaru Kamu
       heroCards: {
         card1_EmployerBranding: "3impres.png", // Atau tempel link gambar (misal: "https://.../foto1.jpg")
-        card2_BankBRI:          "1bri.HEIC.jpg",
-        card3_HRBP:             "6ji.jpg",
+        card2_BankBRI:          "1bri.jpg",
+        card3_HRBP:             "6ji.JPG",
         card4_Assessor:         "4nf.jpg",
       },
 
       // Fallback otomatis jika file lokal "foto-syifa-1.jpg" belum di-upload ke folder project
       heroFallbacks: [
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=900&q=80",
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=900&q=80"
+        "3impres.png",
+        "1bri.jpg",
+        "6ji.JPG",
+        "4nf.jpg",
       ],
 
       // 2. DUA BELAS THUMBNAIL REELS -> Ganti dengan link/nama file screenshot Reels kamu
@@ -856,8 +855,8 @@
         desc: "203 Reels Analyzed • 853,170 Engagement • 5.6% ER (0% Ads)",
         period: "Jan – Dec 2025",
         accent: "rose",
-        image: IMAGE_CONFIG.heroCards.card1_EmployerBranding,
-        fallback: IMAGE_CONFIG.heroFallbacks[0],
+        image: 3impres.jpg.heroCards.card1_EmployerBranding,
+        fallback: 3impres.jpg.heroFallbacks[0],
         target: "#analytics"
       },
       {
@@ -868,8 +867,8 @@
         desc: "Full-lifecycle recruitment, CV screening & competency interviews at Bank BRI",
         period: "Aug – Sep 2025",
         accent: "blue",
-        image: IMAGE_CONFIG.heroCards.card2_BankBRI,
-        fallback: IMAGE_CONFIG.heroFallbacks[1],
+        image: 1bri.jpg.heroCards.card2_BankBRI,
+        fallback: 1bri.jpg.heroFallbacks[1],
         target: "#experience"
       },
       {
@@ -880,8 +879,8 @@
         desc: "Behavioral simulations, FGD verbatim coding & HC transformation",
         period: "Feb – Sep 2025",
         accent: "rose",
-        image: IMAGE_CONFIG.heroCards.card3_HRBP,
-        fallback: IMAGE_CONFIG.heroFallbacks[2],
+        image: 6ji.jpg.heroCards.card3_HRBP,
+        fallback: 6ji.jpg.heroFallbacks[2],
         target: "#experience"
       },
       {
@@ -892,22 +891,10 @@
         desc: "Standardized proctoring & complete evaluation reports in 3-day turnaround",
         period: "July 2026",
         accent: "blue",
-        image: IMAGE_CONFIG.heroCards.card4_Assessor,
-        fallback: IMAGE_CONFIG.heroFallbacks[3],
+        image: 4ng.jpg.heroCards.card4_Assessor,
+        fallback: 4nf.jpg.heroFallbacks[3],
         target: "#experience"
       },
-      {
-        id: 4,
-        badge: "BNSP Certified HR",
-        title: "Psychology Graduate & People Strategy",
-        metric: "GPA 3.40 / 4.00",
-        desc: "Universitas Mercu Buana • Organizational Assessment & Candidate Selection",
-        period: "2022 – 2026",
-        accent: "rose",
-        image: IMAGE_CONFIG.heroCards.card5_PsychologyBNSP,
-        fallback: IMAGE_CONFIG.heroFallbacks[4],
-        target: "#about"
-      }
     ];
 
     let activeIndex = 0;
